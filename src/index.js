@@ -17,11 +17,16 @@ function renderWines(json) {
         li.innerHTML = `
             <h4>${wine.attributes.wine}<br></h4>
             <h5>${wine.attributes.region}, ${wine.attributes.country}<br>${wine.attributes.year}</h5>
-            <img src="${wine.attributes.image}">
-            <p></p>
+            <img src="${wine.attributes.image}" class="wine-label" alt="${wine.attributes.wine} label"><br><br>
+            <a href="" id="show-wine-details">Show Details</a>
+            
         `
     winesList.append(li)
     })
 }
 
 fetchWines()
+
+function showWineDetails() {
+
+}
