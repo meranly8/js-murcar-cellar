@@ -31,6 +31,14 @@ th h3{
     display: "";
 }
 
+#wine-image{
+    width: 225px;
+}
+
+#wine-price, #wine-year{
+    width: 75px;
+}
+
 label{
     font-weight: bold;
 }
