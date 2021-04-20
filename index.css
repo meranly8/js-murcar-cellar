@@ -18,6 +18,14 @@ th h3{
     font-weight: bold;
 }
 
+.form-closed{
+    display: none;
+}
+
+.form-open{
+    display: "";
+}
+
 label{
     font-weight: bold;
 }
