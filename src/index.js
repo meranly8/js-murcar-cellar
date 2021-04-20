@@ -6,6 +6,10 @@ const wineTable = document.querySelector("#wine-table")
 
 const addWineBtn = document.querySelector("#add-wine-btn")
 
+addWineBtn.state = "Closed"
+addWineBtn.addEventListener("click", showWineForm)
+
+const wineForm = document.querySelector("#wine-form")
 
 function fetchWines() {
     fetch(baseURL + "/wines")
@@ -24,6 +28,14 @@ function renderWines(json) {
     })
 }
 
-
+function showWineForm() {
+    if (addWineBtn.state === "Closed"){
+        wineForm.className = "form-open"
+        addWineBtn.state = "Open"
+    } else {
+        wineForm.className = "form-closed"
+        addWineBtn.state = "Closed"
+    }
+}
 
 fetchWines()
