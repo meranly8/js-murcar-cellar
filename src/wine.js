@@ -17,5 +17,36 @@ class Wine {
         Wine.all.push(this)
     }
 
+    renderWineTr(){
+        this.tr.innerHTML = `
+            <th id="${this.id}" class="wine-details">
+                <h3>${this.wine}<br>
+                    ${this.region}, ${this.country} (${this.year})
+                </h3>
+                <a id = "view-${this.id}-comments" href="">Open Comments</a><br><br>
+                <b>Price:</b> $${this.price}<br>
+                <b>Opened:</b> ${this.opened}<br>
+                <b>Rating:</b> ${this.rating}<br><br><br>
+                <a id="update-${this.id}-link" href="">Update Details</a>
+            </th>
+            <th ><img src="${this.image}" class="wine-label" alt="${this.wine} label"><br>
+        `
+        return this.tr
+    }
+    
+    addToTable() {
+        wineTable.appendChild(this.renderWineTr())
+    }
+    
+    static renderWineTOC() {
+        Wine.all.map(wine => {
+            const li = document.createElement("li")
+            li.id = wine.id + "-link-li"
+            li.innerHTML = `
+                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
+            `
+            wineTOCList.append(li)
+        })
+    }
 
 }
