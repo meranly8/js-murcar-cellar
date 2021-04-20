@@ -23,7 +23,7 @@ class Wine {
                 <h3>${this.wine}<br>
                     ${this.region}, ${this.country} (${this.year})
                 </h3>
-                <a id = "view-${this.id}-comments" href="">Open Comments</a><br><br>
+                <a id ="view-${this.id}-comments" href="">View Comments</a><br><br>
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> ${this.opened}<br>
                 <b>Rating:</b> ${this.rating}<br><br><br>
@@ -33,11 +33,11 @@ class Wine {
         `
         return this.tr
     }
-    
+
     addToTable() {
         wineTable.appendChild(this.renderWineTr())
     }
-    
+
     static renderWineTOC() {
         Wine.all.map(wine => {
             const li = document.createElement("li")
@@ -48,5 +48,22 @@ class Wine {
             wineTOCList.append(li)
         })
     }
+
+    addListeners() {
+        const commentLink = document.querySelector(`#view-${this.id}-comments`)
+        commentLink.addEventListener("click", this.showComments)
+
+        const updateLink = document.querySelector(`#update-${this.id}-link`)
+        updateLink.addEventListener("click", this.showEditForm)
+    }
+
+    showComments() {
+        debugger
+    }
+
+    showEditForm() {
+        debugger
+    }
+    
 
 }

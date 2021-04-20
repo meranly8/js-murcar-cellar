@@ -25,6 +25,7 @@ function renderWines(json) {
     wines.map(wine => {
         const w = new Wine({id: wine.id, ...wine.attributes})
         w.addToTable()
+        w.addListeners()
     })
 }
 
