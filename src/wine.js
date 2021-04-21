@@ -49,6 +49,18 @@ class Wine {
         })
     }
 
+    addToWineTOC() {
+        const li = document.createElement("li")
+        li.id = this.id + "-link-li"
+        li.innerHTML = `
+            <a href="#${this.id}" id="${this.id}-link">${this.wine}, ${this.country} (${this.year})</a>
+        `
+        wineTOCList.append(li)
+        wineForm.className = "form-closed"
+        addWineBtn.state = "Closed"
+        addWineBtn.innerText = "Add Wine"
+    }
+
     addListeners() {
         const commentLink = document.querySelector(`#view-${this.id}-comments`)
         commentLink.addEventListener("click", this.showComments)
