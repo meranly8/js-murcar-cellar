@@ -10,6 +10,7 @@ addWineBtn.state = "Closed"
 addWineBtn.addEventListener("click", showWineForm)
 
 const wineForm = document.querySelector("#wine-form")
+
 const wineInput = document.querySelector("#wine-wine")
 const regionInput = document.querySelector("#wine-region")
 const countryInput = document.querySelector("#wine-country")
@@ -19,22 +20,12 @@ const openedInput = document.querySelector("#wine-opened")
 const ratingInput = document.querySelector("#wine-rating")
 const imageInput = document.querySelector("#wine-image")
 
-function fetchWines() {
-    fetch(baseURL + "/wines")
-    .then(resp => resp.json())
-    .then(jsonWine => {
-        renderWines(jsonWine)
-        Wine.renderWineTOC()
-    })
-}
+wineForm.addEventListener("submit", handleNewWineSubmit)
 
-function renderWines(json) {
-    const wines = json["data"]
-    wines.map(wine => {
-        const w = new Wine({id: wine.id, ...wine.attributes})
-        w.addToTable()
-        w.addListeners()
-    })
+function handleNewWineSubmit(event) {
+    event.preventDefault()
+    WineApi.createWine()
+    wineForm.reset()
 }
 
 function showWineForm() {
@@ -49,4 +40,4 @@ function showWineForm() {
     }
 }
 
-fetchWines()
+WineApi.fetchWines()
