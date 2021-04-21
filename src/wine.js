@@ -13,6 +13,7 @@ class Wine {
         this.rating = rating
 
         this.tr = document.createElement("tr")
+        this.tr.id = `wine-${id}`
 
         Wine.all.push(this)
     }
@@ -23,11 +24,13 @@ class Wine {
                 <h3>${this.wine}<br>
                     ${this.region}, ${this.country} (${this.year})
                 </h3>
-                <a id ="view-${this.id}-comments" href="">View Comments</a><br><br>
+                <a id="view-${this.id}-comments" data-id="${this.id}" href="">View Comments</a><br><br>
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> ${this.opened}<br>
                 <b>Rating:</b> ${this.rating}<br><br><br>
-                <a id="update-${this.id}-link" href="">Update Details</a>
+                <a id="update-${this.id}-link" href="">Update Details</a><br>
+                <form id="edit-form-${this.id}">
+                </form>
             </th>
             <th ><img src="${this.image}" class="wine-label" alt="${this.wine} label"><br>
         `
@@ -69,13 +72,11 @@ class Wine {
         updateLink.addEventListener("click", this.showEditForm)
     }
 
-    showComments() {
-        debugger
-    }
-
     showEditForm() {
         debugger
     }
     
-
+    showComments() {
+        debugger
+    }
 }
