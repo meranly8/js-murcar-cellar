@@ -5,7 +5,12 @@ class CommentApi {
         fetch(this.commentsURL)
         .then(resp => resp.json())
         .then(jsonComments => {
-            console.log(jsonComments)
+            const comments = jsonComments["data"]
+            comments.map(comment => {
+                const c = new Comment({id: comment.id, ...comment.attributes})
+                c.addToTable()
+                console.log(c)
+            })
         })
-    }
+    }    
 }
