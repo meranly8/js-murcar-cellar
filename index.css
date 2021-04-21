@@ -42,3 +42,7 @@ th h3{
 label{
     font-weight: bold;
 }
+
+table {
+    width: 100%;
+}
