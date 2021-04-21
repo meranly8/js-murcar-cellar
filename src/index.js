@@ -41,9 +41,11 @@ function showWineForm() {
     if (addWineBtn.state === "Closed"){
         wineForm.className = "form-open"
         addWineBtn.state = "Open"
+        addWineBtn.innerText = "Close Form"
     } else {
         wineForm.className = "form-closed"
         addWineBtn.state = "Closed"
+        addWineBtn.innerText = "Add Wine"
     }
 }
 
