@@ -12,6 +12,7 @@ th{
     text-align: left;
     font-weight: normal;
     width: auto;
+    vertical-align: top;
     
 }
 
@@ -31,12 +32,20 @@ th h3{
     display: "";
 }
 
+
+
 #wine-image{
     width: 225px;
 }
 
 #wine-price, #wine-year{
     width: 75px;
+}
+
+#wine-wine, #wine-region{
+    width: 245px;
+    position: absolute;
+    left: 65px;
 }
 
 label{
