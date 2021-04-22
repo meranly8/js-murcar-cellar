@@ -138,6 +138,10 @@ class Wine {
         debugger
     }
 
+    handleWineDeletion() {
+        debugger
+    }
+
     showComments() {
         debugger
     }
