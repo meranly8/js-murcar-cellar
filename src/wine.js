@@ -26,40 +26,42 @@ class Wine {
                     ${this.region}, ${this.country} (${this.year})
                 </h3>
                 <button id="update-${this.id}-button" data-id=${this.id}>Update Details</button><br><br>
-                <form id="edit-form-${this.id}" class="form-closed" >
-                    <table>
-                        <th>
-                        <label>Wine:
-                            <input type="text" name="wine" id="edit-wine-${this.id}" class="form-column-1" value="${this.wine}"><br>
-                        </label><br>
-                        <label>Region:
-                            <input type="" name="region" id="wine-region" class="form-column-1" value="${this.region}"><br>
-                        </label><br>
-                        <label>Country:
-                            <input type="" name="country" id="wine-country" class="form-column-1" value="${this.country}"><br>
-                        </label><br>
-                        <label>Year:
-                            <input type="number" name="year" id="wine-year" min=1900 class="form-column-1" value="${this.year}"><br>
-                        </label>
-                        </th>
-                        <th>
-                        <label >Price:
-                            $<input type="number" name="price" id="wine-price" class="form-column-2" value="${this.price}"><br>
-                        </label><br>
-                        <label>Opened:
-                            <input type="checkbox" name="opened" id="wine-opened" class="form-column-2" value="${this.opened}"><br>
-                        </label><br>
-                        <label>Rating:
-                            <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="form-column-2" value="${this.rating}"><br>
-                        </label><br>
-                        <label>Label Image Link:
-                            <input type="text" name="image" id="wine-image" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="form-column-2" value="${this.image}"><br><br>
-                        </label>
-                        </th>
-                    </table>
-                    <input type="submit" value="Update Wine"> <button id="delete-${this.id}-button" data-id=${this.id}>Delete Wine</button><br><br>
-                </form>
-
+                <div id="edit-form-${this.id}-div" class="form-closed">
+                    <form id="edit-form-${this.id}">
+                        <table>
+                            <th>
+                            <label>Wine:
+                                <input type="text" name="wine" id="edit-wine-${this.id}" class="form-column-1" value="${this.wine}"><br>
+                            </label><br>
+                            <label>Region:
+                                <input type="" name="region" id="wine-region" class="form-column-1" value="${this.region}"><br>
+                            </label><br>
+                            <label>Country:
+                                <input type="" name="country" id="wine-country" class="form-column-1" value="${this.country}"><br>
+                            </label><br>
+                            <label>Year:
+                                <input type="number" name="year" id="wine-year" min=1900 class="form-column-1" value="${this.year}"><br>
+                            </label>
+                            </th>
+                            <th>
+                            <label >Price:
+                                $<input type="number" name="price" id="wine-price" class="form-column-2" value="${this.price}"><br>
+                            </label><br>
+                            <label>Opened:
+                                <input type="checkbox" name="opened" id="wine-opened" class="form-column-2" value="${this.opened}"><br>
+                            </label><br>
+                            <label>Rating:
+                                <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="form-column-2" value="${this.rating}"><br>
+                            </label><br>
+                            <label>Label Image Link:
+                                <input type="text" name="image" id="wine-image" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="form-column-2" value="${this.image}"><br><br>
+                            </label>
+                            </th>
+                        </table>
+                        <input type="submit" value="Update Wine">
+                    </form><br>
+                    <button id="delete-${this.id}-button" data-id=${this.id}>Delete Wine</button><br><br>
+                </div>
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> ${this.opened}<br>
                 <b>Rating:</b> ${this.rating}<br><br>
@@ -113,17 +115,20 @@ class Wine {
 
         const editForm = document.querySelector(`#edit-form-${this.id}`)
         editForm.addEventListener("submit", this.handleWineUpdateSubmit)
+
+        const deleteBtn = document.querySelector(`#delete-${this.id}-button`)
+        deleteBtn.addEventListener("click", this.handleWineDeletion)
     }
 
     showEditForm() {
-        const editForm = document.querySelector(`#edit-form-${this.dataset.id}`)
+        const formDiv = document.querySelector(`#edit-form-${this.dataset.id}-div`)
         const updateFormBtn = document.querySelector(`#update-${this.dataset.id}-button`)
 
-        if (editForm.className === "form-closed") {
-            editForm.className = "form-open"
+        if (formDiv.className === "form-closed") {
+            formDiv.className = "form-open"
             updateFormBtn.innerText = "Close Edit Form"
-        } else if (editForm.className === "form-open") {
-            editForm.className = "form-closed"
+        } else if (formDiv.className === "form-open") {
+            formDiv.className = "form-closed"
             updateFormBtn.innerText = "Update Details"
         }
     }  
