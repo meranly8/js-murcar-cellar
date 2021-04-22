@@ -128,6 +128,11 @@ class Wine {
         }
     }  
 
+    handleWineUpdateSubmit(event) {
+        event.preventDefault()
+        debugger
+    }
+
     showComments() {
         debugger
     }
