@@ -115,7 +115,16 @@ class Wine {
     }
 
     showEditForm() {
-        debugger
+        const editForm = document.querySelector(`#edit-form-${this.dataset.id}`)
+        const updateFormBtn = document.querySelector(`#update-${this.dataset.id}-button`)
+        
+        if (editForm.className === "form-closed") {
+            editForm.className = "form-open"
+            updateFormBtn.innerText = "Close Edit Form"
+        } else if (editForm.className === "form-open") {
+            editForm.className = "form-closed"
+            updateFormBtn.innerText = "Update Details"
+        }
     }
 
     showComments() {
