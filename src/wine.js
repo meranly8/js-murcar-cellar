@@ -1,7 +1,7 @@
 class Wine {
     static all = []
 
-    constructor({id, wine, region, country, year, price, opened, image, rating}) {
+    constructor({id, wine, region, country, year, price, opened, image, rating, comment_ids}) {
         this.id = id
         this.wine = wine
         this.region = region
@@ -11,6 +11,7 @@ class Wine {
         this.opened = opened
         this.image = image
         this.rating = rating
+        this.comment_ids = comment_ids
 
         this.tr = document.createElement("tr")
         this.tr.id = `wine-${id}`
