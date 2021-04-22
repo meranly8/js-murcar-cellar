@@ -82,6 +82,8 @@ class Wine {
     }
 
     static renderWineTOC() {
+        wineTOCList.innerHTML = ""
+
         Wine.all.map(wine => {
             const li = document.createElement("li")
             li.id = wine.id + "-link-li"
