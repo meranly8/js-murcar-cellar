@@ -16,6 +16,7 @@ class Wine {
         this.tr = document.createElement("tr")
         this.tr.id = `wine-${id}`
 
+        this.index = Wine.all.length
         Wine.all.push(this)
     }
 
@@ -138,8 +139,15 @@ class Wine {
         debugger
     }
 
-    handleWineDeletion() {
-        debugger
+    handleWineDeletion(event) {
+        this.parentNode.parentNode.parentNode.remove()
+        
+        WineApi.deleteWine(this.dataset.id)
+        
+        const wine = Wine.all.find(element => element.id === event.target.dataset.id)
+        const index = wine.index
+        Wine.all.splice(index, 1)
+        Wine.renderWineTOC()
     }
 
     showComments() {
