@@ -45,4 +45,18 @@ class WineApi {
             w.addToWineTOC()
         })
     }
+
+    static deleteWine(id) {
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            }
+        }
+
+        fetch(`${this.winesURL}/${id}`, configObj)
+        .then(resp => resp.json())
+        .then(json => alert(json.message))
+    }
 }
