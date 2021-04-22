@@ -110,6 +110,8 @@ class Wine {
         updateDetailsBtn.state = "Closed"
         updateDetailsBtn.addEventListener("click", this.showEditForm)
 
+        const editForm = document.querySelector(`#edit-form-${this.id}`)
+        editForm.addEventListener("submit", this.handleWineUpdateSubmit)
     }
 
     showEditForm() {
