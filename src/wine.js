@@ -57,7 +57,7 @@ class Wine {
                         </label>
                         </th>
                     </table>
-                    <input type="submit" value="Update Wine"><br>
+                    <input type="submit" value="Update Wine"> <button id="delete-${this.id}-button" data-id=${this.id}>Delete Wine</button><br><br>
                 </form>
 
                 <b>Price:</b> $${this.price}<br>
