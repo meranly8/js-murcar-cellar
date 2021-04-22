@@ -25,7 +25,7 @@ class Wine {
                 <h3>${this.wine}<br>
                     ${this.region}, ${this.country} (${this.year})
                 </h3>
-                <button id="update-${this.id}-button" data-id=${this.id} href="">Update Details</button><br><br>
+                <button id="update-${this.id}-button" data-id=${this.id}>Update Details</button><br><br>
                 <form id="edit-form-${this.id}" class="form-closed" >
                     <table>
                         <th>
@@ -59,11 +59,12 @@ class Wine {
                     </table>
                     <input type="submit" value="Update Wine"><br>
                 </form>
+
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> ${this.opened}<br>
                 <b>Rating:</b> ${this.rating}<br><br>
                 
-                <a id="view-${this.id}-comments" data-id="${this.id}" href="">View Comments</a><br><br>
+                <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br><br>
                 <div id="wine-${this.id}-comments">
                 </div>
             </th>
@@ -103,8 +104,8 @@ class Wine {
     }
 
     addListeners() {
-        const commentLink = document.querySelector(`#view-${this.id}-comments`)
-        commentLink.addEventListener("click", this.showComments)
+        const commentsBtn = document.querySelector(`#view-${this.id}-comments`)
+        commentsBtn.addEventListener("click", this.showComments)
 
         const updateDetailsBtn = document.querySelector(`#update-${this.id}-button`)
         updateDetailsBtn.state = "Closed"
@@ -117,7 +118,7 @@ class Wine {
     showEditForm() {
         const editForm = document.querySelector(`#edit-form-${this.dataset.id}`)
         const updateFormBtn = document.querySelector(`#update-${this.dataset.id}-button`)
-        
+
         if (editForm.className === "form-closed") {
             editForm.className = "form-open"
             updateFormBtn.innerText = "Close Edit Form"
@@ -125,7 +126,7 @@ class Wine {
             editForm.className = "form-closed"
             updateFormBtn.innerText = "Update Details"
         }
-    }
+    }  
 
     showComments() {
         debugger
