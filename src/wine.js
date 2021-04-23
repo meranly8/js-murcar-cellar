@@ -37,34 +37,34 @@ class Wine {
                 </h3>
                 <button id="update-${this.id}-button" data-id=${this.id}>Update Details</button><br><br>
                 <div id="edit-form-${this.id}-div" class="form-closed">
-                    <form id="edit-form-${this.id}">
+                    <form id="edit-form-${this.id}" data-id=${this.id}>
                         <table>
                             <th>
                             <label>Wine:
                                 <input type="text" name="wine" id="edit-wine-${this.id}" class="edit-form-column-1" value="${this.wine}"><br>
                             </label><br>
                             <label>Region:
-                                <input type="" name="region" id="wine-region" class="edit-form-column-1" value="${this.region}"><br>
+                                <input type="" name="region" id="edit-region-${this.id}" class="edit-form-column-1" value="${this.region}"><br>
                             </label><br>
                             <label>Country:
-                                <input type="" name="country" id="wine-country" class="edit-form-column-1" value="${this.country}"><br>
+                                <input type="" name="country" id="edit-country-${this.id}" class="edit-form-column-1" value="${this.country}"><br>
                             </label><br>
                             <label>Year:
-                                <input type="number" name="year" id="wine-year" min=1900 class="edit-form-column-1" value="${this.year}"><br>
+                                <input type="number" name="year" id="edit-year-${this.id}" min=1900 class="edit-form-column-1" value="${this.year}"><br>
                             </label>
                             </th>
                             <th>
                             <label >Price:
-                                $<input type="number" name="price" id="wine-price" class="edit-form-column-2" value="${this.price}"><br>
+                                $<input type="number" name="price" id="edit-price-${this.id}" class="edit-form-column-2" value=${this.price}><br>
                             </label><br>
                             <label>Opened:
-                                <input type="checkbox" name="opened" id="wine-opened" class="edit-form-column-2" value="${this.opened}"><br>
+                                <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened}><br>
                             </label><br>
                             <label>Rating:
-                                <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="edit-form-column-2" value="${this.rating}"><br>
+                                <input type="number" name="rating" id="edit-rating-${this.id}" min=0 max=5 step=.5 class="edit-form-column-2" value=${this.rating}><br>
                             </label><br>
                             <label>Label Image Link:
-                                <input type="text" name="image" id="wine-image" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="edit-form-column-2" value="${this.image}"><br><br>
+                                <input type="text" name="image" id="edit-image-${this.id}" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="edit-form-column-2" value="${this.image}"><br><br>
                             </label>
                             </th>
                         </table>
@@ -104,8 +104,8 @@ class Wine {
         const ratingDetail = document.querySelector(`#rating-detail-${this.id}`)
         const openedDetail = document.querySelector(`#opened-detail-${this.id}`)
         
-        if (this.rating === null) ratingDetail.innerText = "Not yet rated"
-        this.opened === false ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
+        if (this.rating === null || "") ratingDetail.innerText = "Not yet rated"
+        this.opened === false || "" ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
     }
 
     static displayTotal() {
