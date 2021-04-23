@@ -24,6 +24,7 @@ class Wine {
         wineTable.appendChild(this.renderWineTr())
         this.addListeners()
         Wine.renderWineTOC()
+        resetAddForm()
     }
 
     renderWineTr(){
