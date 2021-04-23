@@ -152,6 +152,7 @@ class Wine {
         const index = wine.index
         Wine.all.splice(index, 1)
         Wine.renderWineTOC()
+        Wine.displayTotal()
     }
 
     showComments() {
