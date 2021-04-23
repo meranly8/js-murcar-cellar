@@ -41,30 +41,30 @@ class Wine {
                         <table>
                             <th>
                             <label>Wine:
-                                <input type="text" name="wine" id="edit-wine-${this.id}" class="form-column-1" value="${this.wine}"><br>
+                                <input type="text" name="wine" id="edit-wine-${this.id}" class="edit-form-column-1" value="${this.wine}"><br>
                             </label><br>
                             <label>Region:
-                                <input type="" name="region" id="wine-region" class="form-column-1" value="${this.region}"><br>
+                                <input type="" name="region" id="wine-region" class="edit-form-column-1" value="${this.region}"><br>
                             </label><br>
                             <label>Country:
-                                <input type="" name="country" id="wine-country" class="form-column-1" value="${this.country}"><br>
+                                <input type="" name="country" id="wine-country" class="edit-form-column-1" value="${this.country}"><br>
                             </label><br>
                             <label>Year:
-                                <input type="number" name="year" id="wine-year" min=1900 class="form-column-1" value="${this.year}"><br>
+                                <input type="number" name="year" id="wine-year" min=1900 class="edit-form-column-1" value="${this.year}"><br>
                             </label>
                             </th>
                             <th>
                             <label >Price:
-                                $<input type="number" name="price" id="wine-price" class="form-column-2" value="${this.price}"><br>
+                                $<input type="number" name="price" id="wine-price" class="edit-form-column-2" value="${this.price}"><br>
                             </label><br>
                             <label>Opened:
-                                <input type="checkbox" name="opened" id="wine-opened" class="form-column-2" value="${this.opened}"><br>
+                                <input type="checkbox" name="opened" id="wine-opened" class="edit-form-column-2" value="${this.opened}"><br>
                             </label><br>
                             <label>Rating:
-                                <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="form-column-2" value="${this.rating}"><br>
+                                <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="edit-form-column-2" value="${this.rating}"><br>
                             </label><br>
                             <label>Label Image Link:
-                                <input type="text" name="image" id="wine-image" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="form-column-2" value="${this.image}"><br><br>
+                                <input type="text" name="image" id="wine-image" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="edit-form-column-2" value="${this.image}"><br><br>
                             </label>
                             </th>
                         </table>
