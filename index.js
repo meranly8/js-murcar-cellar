@@ -32,10 +32,7 @@ function showCountryTotals() {
         totalsContainer.className = "form-opened"
         countryTotalsBtn.innerText = "Close Totals"
 
-        const countries = ) // grab all countries
         const distinctCountries = [...new Set(Wine.all.map(wine => wine.country))] // grab unquie countries for display
-
-        
     
     } else if (totalsContainer.className === "form-opened") {
         totalsContainer.className = "form-closed"
@@ -48,6 +45,12 @@ function handleNewWineSubmit(event) {
     event.preventDefault()
     WineApi.createWine()
     wineForm.reset()
+}
+
+function resetAddForm() {
+    wineForm.className = "form-closed"
+    addWineBtn.state = "Closed"
+    addWineBtn.innerText = "Add Wine"
 }
 
 function showWineForm() {
