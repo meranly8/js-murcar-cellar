@@ -20,6 +20,12 @@ class Wine {
         Wine.all.push(this)
     }
 
+    addToPage() {
+        wineTable.appendChild(this.renderWineTr())
+        this.addListeners()
+        Wine.renderWineTOC()
+    }
+
     renderWineTr(){
         this.tr.innerHTML = `
             <th id="${this.id}" class="wine-details">
@@ -76,38 +82,6 @@ class Wine {
         return this.tr
     }
 
-    addToTable() {
-        wineTable.appendChild(this.renderWineTr())
-        this.addListeners()
-    }
-
-    static renderWineTOC() {
-        wineTOCList.innerHTML = ""
-
-        Wine.all.map(wine => {
-            const li = document.createElement("li")
-            li.id = wine.id + "-link-li"
-            li.innerHTML = `
-                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
-            `
-            wineTOCList.append(li)
-        })
-    }
-
-    addToWineTOC() {
-        //remove all elements in wineTOCList, iterate over Wine.all so wine's are in alpha order
-        
-        const li = document.createElement("li")
-        li.id = this.id + "-link-li"
-        li.innerHTML = `
-            <a href="#${this.id}" id="${this.id}-link">${this.wine}, ${this.country} (${this.year})</a>
-        `
-        wineTOCList.append(li)
-        wineForm.className = "form-closed"
-        addWineBtn.state = "Closed"
-        addWineBtn.innerText = "Add Wine"
-    }
-
     addListeners() {
         const commentsBtn = document.querySelector(`#view-${this.id}-comments`)
         commentsBtn.addEventListener("click", this.showComments)
@@ -121,6 +95,19 @@ class Wine {
 
         const deleteBtn = document.querySelector(`#delete-${this.id}-button`)
         deleteBtn.addEventListener("click", this.handleWineDeletion)
+    }
+
+    static renderWineTOC() {
+        wineTOCList.innerHTML = ""
+
+        Wine.all.map(wine => {
+            const li = document.createElement("li")
+            li.id = wine.id + "-link-li"
+            li.innerHTML = `
+                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
+            `
+            wineTOCList.append(li)
+        })
     }
 
     showEditForm() {
