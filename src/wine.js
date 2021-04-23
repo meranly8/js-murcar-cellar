@@ -24,6 +24,7 @@ class Wine {
         wineTable.appendChild(this.renderWineTr())
         this.addListeners()
         this.detailsFormatting()
+        Wine.displayTotal()
         Wine.renderWineTOC()
         resetAddForm()
     }
@@ -105,6 +106,10 @@ class Wine {
         
         if (this.rating === null) ratingDetail.innerText = "Not yet rated"
         this.opened === false ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
+    }
+
+    static displayTotal() {
+        wineTotal.innerText = Wine.all.length
     }
 
     static renderWineTOC() {
