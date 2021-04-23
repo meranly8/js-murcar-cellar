@@ -23,6 +23,7 @@ class Wine {
     addToPage() {
         wineTable.appendChild(this.renderWineTr())
         this.addListeners()
+        this.detailsFormatting()
         Wine.renderWineTOC()
         resetAddForm()
     }
@@ -96,6 +97,14 @@ class Wine {
 
         const deleteBtn = document.querySelector(`#delete-${this.id}-button`)
         deleteBtn.addEventListener("click", this.handleWineDeletion)
+    }
+
+    detailsFormatting() {
+        const ratingDetail = document.querySelector(`#rating-detail-${this.id}`)
+        const openedDetail = document.querySelector(`#opened-detail-${this.id}`)
+        
+        if (this.rating === null) ratingDetail.innerText = "Not yet rated"
+        this.opened === false ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
     }
 
     static renderWineTOC() {
