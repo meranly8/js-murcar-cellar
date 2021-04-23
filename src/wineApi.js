@@ -43,6 +43,37 @@ class WineApi {
         })
     }
 
+    static updateWine(wine) {
+        const formData = {
+            wine: wine.wine,
+            region: wine.region,
+            country: wine.country,
+            year: wine.year,
+            price: wine.price,
+            opened: wine.opened,
+            rating: wine.rating,
+            image: wine.image
+        }
+        
+        const configObj = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+
+        fetch(`${this.winesURL}/${wine.id}`, configObj)
+        .then(resp => resp.json())
+        .then(jsonWine => {
+            console.log(jsonWine)
+            wine.renderWineTr()
+            wine.addListeners()
+            wine.detailsFormatting()
+        })
+    }
+
     static deleteWine(id) {
         const configObj = {
             method: "DELETE",
