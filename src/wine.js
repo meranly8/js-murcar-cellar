@@ -140,7 +140,19 @@ class Wine {
 
     handleWineUpdateSubmit(event) {
         event.preventDefault()
-        debugger
+        
+        const wine = Wine.all.find(wine => wine.id === this.dataset.id)
+
+        wine.wine = this.querySelector(`#edit-wine-${this.dataset.id}`).value
+        wine.region = this.querySelector(`#edit-region-${this.dataset.id}`).value
+        wine.country = this.querySelector(`#edit-country-${this.dataset.id}`).value
+        wine.year = this.querySelector(`#edit-year-${this.dataset.id}`).value
+        wine.price = this.querySelector(`#edit-price-${this.dataset.id}`).value
+        wine.opened = this.querySelector(`#edit-opened-${this.dataset.id}`).value
+        wine.rating = this.querySelector(`#edit-rating-${this.dataset.id}`).value
+        wine.image = this.querySelector(`#edit-image-${this.dataset.id}`).value
+
+        WineApi.updateWine(wine)
     }
 
     handleWineDeletion(event) {
