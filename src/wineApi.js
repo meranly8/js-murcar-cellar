@@ -8,9 +8,8 @@ class WineApi {
             const wines = jsonWines["data"]
             wines.map(wine => {
                 const w = new Wine({id: wine.id, ...wine.attributes, comment_ids: wine.relationships.comments.data})
-                w.addToTable()
+                w.addToPage()
             })
-            Wine.renderWineTOC()
         })
     }
 
@@ -40,9 +39,7 @@ class WineApi {
         .then(jsonWine => {
             const wine = jsonWine["data"]
             const w = new Wine({id: wine.id, ...wine.attributes})
-            w.addToTable()
-            w.addListeners()
-            w.addToWineTOC()
+            w.addToPage()
         })
     }
 
