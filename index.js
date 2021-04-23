@@ -1,13 +1,18 @@
 const baseURL = "http://localhost:3000"
 
-const wineTOCList = document.querySelector("#wine-toc-list")
-
-const wineTable = document.querySelector("#wine-table")
+const wineTotal = document.querySelector("#wine-total")
+const countryTotalsBtn = document.querySelector("#totals-by-country-btn")
+countryTotalsBtn.addEventListener("click", showCountryTotals)
+const totalsContainer = document.querySelector("#totals-by-country")
 
 const addWineBtn = document.querySelector("#add-wine-btn")
 
 addWineBtn.state = "Closed"
 addWineBtn.addEventListener("click", showWineForm)
+
+const wineTOCList = document.querySelector("#wine-toc-list")
+
+const wineTable = document.querySelector("#wine-table")
 
 const wineForm = document.querySelector("#wine-form")
 
@@ -21,6 +26,23 @@ const ratingInput = document.querySelector("#wine-rating")
 const imageInput = document.querySelector("#wine-image")
 
 wineForm.addEventListener("submit", handleNewWineSubmit)
+
+function showCountryTotals() {
+    if (totalsContainer.className === "form-closed") {
+        totalsContainer.className = "form-opened"
+        countryTotalsBtn.innerText = "Close Totals"
+
+        const countries = ) // grab all countries
+        const distinctCountries = [...new Set(Wine.all.map(wine => wine.country))] // grab unquie countries for display
+
+        
+    
+    } else if (totalsContainer.className === "form-opened") {
+        totalsContainer.className = "form-closed"
+        countryTotalsBtn.innerText = "Totals by Country"
+    }
+
+}
 
 function handleNewWineSubmit(event) {
     event.preventDefault()
