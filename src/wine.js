@@ -30,6 +30,8 @@ class Wine {
     }
 
     renderWineTr(){
+        const checked = (this.opened === true) ? "checked" : ""
+
         this.tr.innerHTML = `
             <th id="${this.id}" class="wine-details">
                 <h3>${this.wine}<br>
@@ -58,7 +60,7 @@ class Wine {
                                 $<input type="number" name="price" id="edit-price-${this.id}" class="edit-form-column-2" value=${this.price}><br>
                             </label><br>
                             <label>Opened:
-                                <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened}><br>
+                                <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened} ${checked}><br>
                             </label><br>
                             <label>Rating:
                                 <input type="number" name="rating" id="edit-rating-${this.id}" min=0 max=5 step=.5 class="edit-form-column-2" value=${this.rating}><br>
@@ -80,7 +82,7 @@ class Wine {
                 <div id="wine-${this.id}-comments">
                 </div>
             </th>
-            <th ><img src="${this.image}" class="wine-label" alt="${this.wine} label"><br>
+            <th><img src="${this.image}" class="wine-label" alt="${this.wine} label"></th><br>
         `
         return this.tr
     }
@@ -88,11 +90,11 @@ class Wine {
     addListeners() {
         const commentsBtn = document.querySelector(`#view-${this.id}-comments`)
         commentsBtn.addEventListener("click", this.showComments)
-
+         
         const updateDetailsBtn = document.querySelector(`#update-${this.id}-button`)
         updateDetailsBtn.state = "Closed"
         updateDetailsBtn.addEventListener("click", this.showEditForm)
-
+         
         const editForm = document.querySelector(`#edit-form-${this.id}`)
         editForm.addEventListener("submit", this.handleWineUpdateSubmit)
 
@@ -136,11 +138,11 @@ class Wine {
             formDiv.className = "form-closed"
             updateFormBtn.innerText = "Update Details"
         }
-    }  
+    }
 
     handleWineUpdateSubmit(event) {
         event.preventDefault()
-        
+
         const wine = Wine.all.find(wine => wine.id === this.dataset.id)
 
         wine.wine = this.querySelector(`#edit-wine-${this.dataset.id}`).value
