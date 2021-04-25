@@ -12,4 +12,29 @@ class CommentApi {
             })
         })
     }
+
+    static createComment(comment) {
+        const formData = {
+            name: comment.name,
+            comment: comment.comment,
+            wine_id: comment.wine_id
+        }
+
+        const configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify(formData)
+        }
+        
+        fetch(this.commentsURL, configObj)
+        .then(resp => resp.json())
+        .then(commentJson => {
+            const comment = commentJson["data"]
+            const c = new Comment({id: comment.id, ...comment.attributes})
+            c.addToWineCommentDiv()
+        })
+    }
 }
