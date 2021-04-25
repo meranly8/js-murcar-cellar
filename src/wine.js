@@ -95,13 +95,7 @@ class Wine {
             this.showEditForm(event)
 
         } else if (event.target.innerText === "View Comments") {
-            const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
-            commentDiv.className = "form-open"
-            
-            const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
-            addCommentBtn.className = "form-open"
-
-            event.target.innerText = "Close Comments"
+            this.showComments(event)
 
         } else if (event.target.innerText === "Delete Wine") {
             this.handleWineDeletion()
@@ -195,6 +189,16 @@ class Wine {
             editForm.addEventListener('submit', this.handleWineUpdateSubmit)
 
             event.target.innerText = "Close Edit Form"
+    }
+
+    showComments = (event) => {
+        const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
+        commentDiv.className = "form-open"
+        
+        const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
+        addCommentBtn.className = "form-open"
+
+        event.target.innerText = "Close Comments"
     }
 
     showCommentForm = (event) => {
