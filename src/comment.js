@@ -74,4 +74,8 @@ class Comment {
         const commentFormBtn = event.target.previousElementSibling
         commentFormBtn.innerText = "Add Comment"
     }
+
+    handleCommentDelete = () => {
+        debugger
+    }
 }
