@@ -15,6 +15,7 @@ class Wine {
 
         this.tr = document.createElement("tr")
         this.tr.id = `wine-${id}`
+        this.tr.addEventListener('click', this.handleWineClick)
 
         this.index = Wine.all.length
         Wine.all.push(this)
@@ -22,7 +23,6 @@ class Wine {
 
     addToPage() {
         wineTable.appendChild(this.renderWineTr())
-        this.addListeners()
         this.detailsFormatting()
         Wine.displayTotal()
         Wine.renderWineTOC()
@@ -87,19 +87,26 @@ class Wine {
         return this.tr
     }
 
-    addListeners() {
-        const commentsBtn = document.querySelector(`#view-${this.id}-comments`)
-        commentsBtn.addEventListener("click", this.showComments)
-         
-        const updateDetailsBtn = document.querySelector(`#update-${this.id}-button`)
-        updateDetailsBtn.state = "Closed"
-        updateDetailsBtn.addEventListener("click", this.showEditForm)
-         
-        const editForm = document.querySelector(`#edit-form-${this.id}`)
-        editForm.addEventListener("submit", this.handleWineUpdateSubmit)
+    handleWineClick = (event) => {
+        if (event.target.innerText === "Update Details") {
+            const editDiv = event.target.nextSibling.nextElementSibling.nextElementSibling
+            const editForm = editDiv.querySelector(`#edit-form-${this.id}`)
 
-        const deleteBtn = document.querySelector(`#delete-${this.id}-button`)
-        deleteBtn.addEventListener("click", this.handleWineDeletion)
+            editDiv.className = "form-opened"
+            editForm.addEventListener('submit', this.handleWineUpdateSubmit)
+
+            event.target.innerText = "Close Edit Form"
+
+        } else if (event.target.innerText === "View Comments") {
+            this.showComments()
+
+        } else if (event.target.innerText === "Delete Wine") {
+            this.handleWineDeletion()
+
+        } else if (event.target.innerText === "Close Edit Form") {
+            event.target.nextSibling.nextElementSibling.nextElementSibling.className = "form-closed"
+            event.target.innerText = "Update Details"
+        }
     }
 
     detailsFormatting() {
