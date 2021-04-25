@@ -105,18 +105,7 @@ class Wine {
             event.target.innerText = "Update Details"
 
         } else if (event.target.innerText === "Close Comments") {
-            const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
-            commentDiv.className = "form-closed"
-
-            const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
-            addCommentBtn.className = "form-closed"
-
-            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
-            commentForm.className = "form-closed"
-
-            addCommentBtn.innerText = "Add Comment"
-
-            event.target.innerText = "View Comments"
+            this.hideComments(event)
 
         } else if (event.target.innerText === "Add Comment") {
             this.showCommentForm(event)
@@ -199,6 +188,21 @@ class Wine {
         addCommentBtn.className = "form-open"
 
         event.target.innerText = "Close Comments"
+    }
+
+    hideComments = (event) => {
+        const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
+            commentDiv.className = "form-closed"
+
+            const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
+            addCommentBtn.className = "form-closed"
+
+            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+            commentForm.className = "form-closed"
+
+            addCommentBtn.innerText = "Add Comment"
+
+            event.target.innerText = "View Comments"
     }
 
     showCommentForm = (event) => {
