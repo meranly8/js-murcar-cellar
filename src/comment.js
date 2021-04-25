@@ -28,4 +28,20 @@ class Comment {
         `
         return this.p
     }
+
+    renderCommentForm() {
+        const commentForm = document.querySelector(`#add-cmt-wine-${this.wine_id}`)
+        commentForm.innerHTML = `
+        <br>
+        <label>
+            Name: <input type="text" name="comment-name" id="comment-name-${this.wine_id}">
+        </label><br>
+        <label>
+            Comment: <textarea name="comment-comment" id="comment-comment-${this.wine_id}"></textarea>
+        </label>
+        <input type="hidden" name="comment-wine_id" value="${this.wine_id}"><br>
+        <input type="submit" value="Create Comment">
+        `
+        commentForm.addEventListener('submit', this.handleNewCommentSubmit)
+    }
 }
