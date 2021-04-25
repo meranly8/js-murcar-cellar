@@ -111,10 +111,7 @@ class Wine {
             this.showCommentForm(event)
             
         } else if (event.target.innerText === "Close Comment Form") {
-            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
-            commentForm.className = "form-closed"
-
-            event.target.innerText = "Add Comment"
+            this.hideCommentForm(event)
         }
         
     }
@@ -213,5 +210,12 @@ class Wine {
         commentForm.className = "form-open"
 
         event.target.innerText = "Close Comment Form"
+    }
+
+    hideCommentForm = (event) => {
+        const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+        commentForm.className = "form-closed"
+
+        event.target.innerText = "Add Comment"
     }
 }
