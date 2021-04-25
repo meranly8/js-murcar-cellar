@@ -149,14 +149,12 @@ class Wine {
         WineApi.updateWine(this)
     }
 
-    handleWineDeletion(event) {
-        this.parentNode.parentNode.parentNode.remove()
+    handleWineDeletion = () => {
+        this.tr.remove()
         
-        WineApi.deleteWine(this.dataset.id)
+        WineApi.deleteWine(this.id)
         
-        const wine = Wine.all.find(element => element.id === event.target.dataset.id)
-        const index = wine.index
-        Wine.all.splice(index, 1)
+        Wine.all.splice(this.index, 1)
         Wine.renderWineTOC()
         Wine.displayTotal()
     }
