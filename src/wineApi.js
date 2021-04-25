@@ -39,7 +39,8 @@ class WineApi {
         .then(jsonWine => {
             const wine = jsonWine["data"]
             const w = new Wine({id: wine.id, ...wine.attributes})
-            w.addToPage()
+            resetAddForm()
+            w.updateDOM()
         })
     }
 
