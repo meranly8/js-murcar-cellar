@@ -131,13 +131,7 @@ class Wine {
             event.target.innerText = "View Comments"
 
         } else if (event.target.innerText === "Add Comment") {
-            const c = new Comment({wine_id: this.id})
-            c.renderCommentForm()
-            
-            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
-            commentForm.className = "form-open"
-
-            event.target.innerText = "Close Comment Form"
+            this.showCommentForm(event)
             
         } else if (event.target.innerText === "Close Comment Form") {
             const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
@@ -197,5 +191,15 @@ class Wine {
         Wine.all.splice(this.index, 1)
         Wine.renderWineTOC()
         Wine.displayTotal()
+    }
+
+    showCommentForm = (event) => {
+        const c = new Comment({wine_id: this.id})
+        c.renderCommentForm()
+        
+        const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+        commentForm.className = "form-open"
+
+        event.target.innerText = "Close Comment Form"
     }
 }
