@@ -134,21 +134,19 @@ class Wine {
         })
     }
 
-    handleWineUpdateSubmit(event) {
+    handleWineUpdateSubmit = (event) => {
         event.preventDefault()
+        
+        this.wine = this.tr.querySelector(`#edit-wine-${this.id}`).value
+        this.region = this.tr.querySelector(`#edit-region-${this.id}`).value
+        this.country = this.tr.querySelector(`#edit-country-${this.id}`).value
+        this.year = this.tr.querySelector(`#edit-year-${this.id}`).value
+        this.price = this.tr.querySelector(`#edit-price-${this.id}`).value
+        this.opened = this.tr.querySelector(`#edit-opened-${this.id}`).value
+        this.rating = this.tr.querySelector(`#edit-rating-${this.id}`).value
+        this.image = this.tr.querySelector(`#edit-image-${this.id}`).value
 
-        const wine = Wine.all.find(wine => wine.id === this.dataset.id)
-
-        wine.wine = this.querySelector(`#edit-wine-${this.dataset.id}`).value
-        wine.region = this.querySelector(`#edit-region-${this.dataset.id}`).value
-        wine.country = this.querySelector(`#edit-country-${this.dataset.id}`).value
-        wine.year = this.querySelector(`#edit-year-${this.dataset.id}`).value
-        wine.price = this.querySelector(`#edit-price-${this.dataset.id}`).value
-        wine.opened = this.querySelector(`#edit-opened-${this.dataset.id}`).value
-        wine.rating = this.querySelector(`#edit-rating-${this.dataset.id}`).value
-        wine.image = this.querySelector(`#edit-image-${this.dataset.id}`).value
-
-        WineApi.updateWine(wine)
+        WineApi.updateWine(this)
     }
 
     handleWineDeletion(event) {
