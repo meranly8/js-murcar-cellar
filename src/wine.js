@@ -109,12 +109,13 @@ class Wine {
         }
     }
 
-    detailsFormatting() {
+    detailsFormatting = () => {
         const ratingDetail = document.querySelector(`#rating-detail-${this.id}`)
         const openedDetail = document.querySelector(`#opened-detail-${this.id}`)
         
-        if (this.rating === null || "") ratingDetail.innerText = "Not yet rated"
-        this.opened === false || "" ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
+        if (this.rating === null || this.rating === "") ratingDetail.innerText = "Not yet rated"
+
+        this.opened === false || this.rating === "" ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
     }
 
     static displayTotal() {
