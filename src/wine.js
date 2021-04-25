@@ -11,7 +11,7 @@ class Wine {
         this.opened = opened
         this.image = image
         this.rating = rating
-        this.comment_ids = comment_ids
+        this.comment_ids = comment_ids.map(id => {return id.id})
 
         this.tr = document.createElement("tr")
         this.tr.id = `wine-${id}`
