@@ -21,12 +21,11 @@ class Wine {
         Wine.all.push(this)
     }
 
-    addToPage() {
+    updateDOM() {
         wineTable.appendChild(this.renderWineTr())
         this.detailsFormatting()
         Wine.displayTotal()
         Wine.renderWineTOC()
-        resetAddForm()
     }
 
     renderWineTr(){
