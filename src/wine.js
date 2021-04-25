@@ -92,13 +92,7 @@ class Wine {
 
     handleWineClick = (event) => {
         if (event.target.innerText === "Update Details") {
-            const editDiv = event.target.nextSibling.nextElementSibling.nextElementSibling
-            editDiv.className = "form-opened"
-            
-            const editForm = editDiv.querySelector(`#edit-form-${this.id}`)
-            editForm.addEventListener('submit', this.handleWineUpdateSubmit)
-
-            event.target.innerText = "Close Edit Form"
+            this.showEditForm(event)
 
         } else if (event.target.innerText === "View Comments") {
             const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
@@ -191,6 +185,16 @@ class Wine {
         Wine.all.splice(this.index, 1)
         Wine.renderWineTOC()
         Wine.displayTotal()
+    }
+
+    showEditForm = (event) => {
+        const editDiv = event.target.nextSibling.nextElementSibling.nextElementSibling
+            editDiv.className = "form-opened"
+            
+            const editForm = editDiv.querySelector(`#edit-form-${this.id}`)
+            editForm.addEventListener('submit', this.handleWineUpdateSubmit)
+
+            event.target.innerText = "Close Edit Form"
     }
 
     showCommentForm = (event) => {
