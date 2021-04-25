@@ -14,4 +14,13 @@ class Comment {
 
         Comment.all.push(this)
     }
+
+    renderCommentP() {
+        this.p.innerHTML = `
+            Created: ${this.created_at}<br>
+            Name: ${this.name}<br>
+            Comment: ${this.comment}<br>
+        `
+        return this.p
+    }
 }
