@@ -75,11 +75,15 @@ class Wine {
                 </div>
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> <container id="opened-detail-${this.id}">${this.opened}</container><br>
-                <b >Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br><br>
+                <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br><br>
                 
                 <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br><br>
                 <div id="wine-${this.id}-comments">
                 </div>
+
+                <button id="wine-${this.id}-add-cmt-btn" class="form-closed">Add Comment</button>
+                <form id="add-cmt-wine-${this.id}-form" class="form-closed">
+                </form>
             </th>
             <th><img src="${this.image}" class="wine-label" alt="${this.wine} label"></th><br>
         `
