@@ -93,15 +93,21 @@ class Wine {
     handleWineClick = (event) => {
         if (event.target.innerText === "Update Details") {
             const editDiv = event.target.nextSibling.nextElementSibling.nextElementSibling
-            const editForm = editDiv.querySelector(`#edit-form-${this.id}`)
-
             editDiv.className = "form-opened"
+            
+            const editForm = editDiv.querySelector(`#edit-form-${this.id}`)
             editForm.addEventListener('submit', this.handleWineUpdateSubmit)
 
             event.target.innerText = "Close Edit Form"
 
         } else if (event.target.innerText === "View Comments") {
-            this.showComments()
+            const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
+            commentDiv.className = "form-open"
+            
+            const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
+            addCommentBtn.className = "form-open"
+
+            event.target.innerText = "Close Comments"
 
         } else if (event.target.innerText === "Delete Wine") {
             this.handleWineDeletion()
@@ -109,7 +115,37 @@ class Wine {
         } else if (event.target.innerText === "Close Edit Form") {
             event.target.nextSibling.nextElementSibling.nextElementSibling.className = "form-closed"
             event.target.innerText = "Update Details"
+
+        } else if (event.target.innerText === "Close Comments") {
+            const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
+            commentDiv.className = "form-closed"
+
+            const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
+            addCommentBtn.className = "form-closed"
+
+            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+            commentForm.className = "form-closed"
+
+            addCommentBtn.innerText = "Add Comment"
+
+            event.target.innerText = "View Comments"
+
+        } else if (event.target.innerText === "Add Comment") {
+            const c = new Comment({wine_id: this.id})
+            c.renderCommentForm()
+            
+            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+            commentForm.className = "form-open"
+
+            event.target.innerText = "Close Comment Form"
+            
+        } else if (event.target.innerText === "Close Comment Form") {
+            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+            commentForm.className = "form-closed"
+
+            event.target.innerText = "Add Comment"
         }
+        
     }
 
     detailsFormatting = () => {
