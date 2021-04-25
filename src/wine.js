@@ -77,8 +77,8 @@ class Wine {
                 <b>Opened:</b> <container id="opened-detail-${this.id}">${this.opened}</container><br>
                 <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br><br>
                 
-                <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br><br>
-                <div id="wine-${this.id}-comments">
+                <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br>
+                <div id="wine-${this.id}-comments" class="form-closed">
                 </div>
 
                 <button id="wine-${this.id}-add-cmt-btn" class="form-closed">Add Comment</button>
@@ -197,9 +197,5 @@ class Wine {
         Wine.all.splice(this.index, 1)
         Wine.renderWineTOC()
         Wine.displayTotal()
-    }
-
-    showComments() {
-        debugger
     }
 }
