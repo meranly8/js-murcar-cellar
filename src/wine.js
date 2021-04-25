@@ -82,7 +82,7 @@ class Wine {
                 </div>
 
                 <button id="wine-${this.id}-add-cmt-btn" class="form-closed">Add Comment</button>
-                <form id="add-cmt-wine-${this.id}-form" class="form-closed">
+                <form id="add-cmt-wine-${this.id}" class="form-closed">
                 </form>
             </th>
             <th><img src="${this.image}" class="wine-label" alt="${this.wine} label"></th><br>
