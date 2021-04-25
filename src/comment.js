@@ -15,6 +15,11 @@ class Comment {
         Comment.all.push(this)
     }
 
+    addToWineCommentDiv() {
+        const commentDiv = document.querySelector(`#wine-${this.wine_id}-comments`)
+        commentDiv.append(this.renderCommentP())
+    }
+
     renderCommentP() {
         this.p.innerHTML = `
             Created: ${this.created_at}<br>
