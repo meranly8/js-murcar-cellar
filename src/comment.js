@@ -44,4 +44,8 @@ class Comment {
         `
         commentForm.addEventListener('submit', this.handleNewCommentSubmit)
     }
+
+    handleNewCommentSubmit = () => {
+        debugger
+    }
 }
