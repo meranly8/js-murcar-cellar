@@ -134,19 +134,6 @@ class Wine {
         })
     }
 
-    showEditForm() {
-        const formDiv = document.querySelector(`#edit-form-${this.dataset.id}-div`)
-        const updateFormBtn = document.querySelector(`#update-${this.dataset.id}-button`)
-
-        if (formDiv.className === "form-closed") {
-            formDiv.className = "form-open"
-            updateFormBtn.innerText = "Close Edit Form"
-        } else if (formDiv.className === "form-open") {
-            formDiv.className = "form-closed"
-            updateFormBtn.innerText = "Update Details"
-        }
-    }
-
     handleWineUpdateSubmit(event) {
         event.preventDefault()
 
