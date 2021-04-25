@@ -8,8 +8,9 @@ class WineApi {
             const wines = jsonWines["data"]
             wines.map(wine => {
                 const w = new Wine({id: wine.id, ...wine.attributes, comment_ids: wine.relationships.comments.data})
-                w.addToPage()
+                w.updateDOM()
             })
+            CommentApi.fetchComments()
         })
     }
 
