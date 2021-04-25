@@ -8,9 +8,8 @@ class CommentApi {
             const comments = jsonComments["data"]
             comments.map(comment => {
                 const c = new Comment({id: comment.id, ...comment.attributes})
-                c.addToTable()
-                console.log(c)
+                c.addToWineCommentDiv()
             })
         })
-    }    
+    }
 }
