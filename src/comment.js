@@ -45,7 +45,20 @@ class Comment {
         commentForm.addEventListener('submit', this.handleNewCommentSubmit)
     }
 
-    handleNewCommentSubmit = () => {
-        debugger
+    handleNewCommentSubmit = (event) => {
+        event.preventDefault()
+        const nameValue = document.querySelector(`#comment-name-${this.wine_id}`).value
+        const commentValue = document.querySelector(`#comment-comment-${this.wine_id}`).value
+        const wineIdValue = document.querySelector(`#comment-wine_id-${this.wine_id}`).value
+
+        this.name = nameValue
+        this.comment = commentValue
+        this.wine_id = wineIdValue
+
+        const commentForm = document.querySelector(`#add-cmt-wine-${this.wine_id}`)
+        commentForm.reset()
+        this.hideCommentForm(event)
+        
+        CommentApi.createComment(this)
     }
 }
