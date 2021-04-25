@@ -67,10 +67,9 @@ class WineApi {
         fetch(`${this.winesURL}/${wine.id}`, configObj)
         .then(resp => resp.json())
         .then(jsonWine => {
-            console.log(jsonWine)
             wine.renderWineTr()
-            wine.addListeners()
             wine.detailsFormatting()
+            Wine.renderWineTOC()
         })
     }
 

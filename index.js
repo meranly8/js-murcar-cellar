@@ -27,6 +27,7 @@ const imageInput = document.querySelector("#wine-image")
 
 wineForm.addEventListener("submit", handleNewWineSubmit)
 
+// table with distinctCountries elements as headers with ids
 function showCountryTotals() {
     if (totalsContainer.className === "form-closed") {
         totalsContainer.className = "form-opened"
