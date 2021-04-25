@@ -61,4 +61,12 @@ class Comment {
         
         CommentApi.createComment(this)
     }
+
+    hideCommentForm = (event) => {
+        const commentForm = event.target
+        commentForm.className = "form-closed"
+
+        const commentFormBtn = event.target.previousElementSibling
+        commentFormBtn.innerText = "Add Comment"
+    }
 }
