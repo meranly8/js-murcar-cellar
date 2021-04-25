@@ -32,7 +32,10 @@ th h3{
     display: "";
 }
 
-
+.form-column-1 {
+    width: 245px;
+    position: relative;
+}
 
 #wine-image{
     width: 225px;
@@ -42,10 +45,12 @@ th h3{
     width: 75px;
 }
 
-#wine-wine, #wine-region{
-    width: 245px;
-    position: absolute;
-    left: 65px;
+#wine-country{
+    width: 135px
+}
+
+#wine-region{
+    width: 235px;
 }
 
 label{
