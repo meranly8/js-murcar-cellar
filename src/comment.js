@@ -25,7 +25,7 @@ class Comment {
             Created: ${this.created_at}<br>
             Name: ${this.name}<br>
             Comment: ${this.comment}<br>
-            <button id="delete-${this.id}-comment">Delete</button>
+            <button id="delete-${this.id}-comment" data-id=${this.id}>Delete</button>
         `
 
         const deleteBtn = this.p.querySelector(`#delete-${this.id}-comment`)
