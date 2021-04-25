@@ -39,7 +39,7 @@ class Comment {
         <label>
             Comment: <textarea name="comment-comment" id="comment-comment-${this.wine_id}"></textarea>
         </label>
-        <input type="hidden" name="comment-wine_id" value="${this.wine_id}"><br>
+        <input type="hidden" name="comment-wine_id" id="comment-wine_id-${this.wine_id}" value="${this.wine_id}"><br>
         <input type="submit" value="Create Comment">
         `
         commentForm.addEventListener('submit', this.handleNewCommentSubmit)
