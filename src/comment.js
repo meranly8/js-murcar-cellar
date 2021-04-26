@@ -89,7 +89,10 @@ class Comment {
         commentFormBtn.innerText = "Add Comment"
     }
 
-    handleCommentDelete = () => {
-        debugger
+    handleCommentDelete() {
+        const comment = Comment.all.find(c => c.id === this.dataset.id)
+        comment.p.remove()
+
+        CommentApi.deleteComment(comment.id)
     }
 }
