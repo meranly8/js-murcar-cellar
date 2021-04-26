@@ -37,4 +37,18 @@ class CommentApi {
             c.addToWineCommentDiv()
         })
     }
+
+    static deleteComment(id) {
+        const configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            }
+        }
+
+        fetch(`${this.commentsURL}/${id}`, configObj)
+        .then(resp => resp.json())
+        .then(commentJson => alert(commentJson.message))
+    }
 }
