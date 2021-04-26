@@ -18,6 +18,7 @@ class Comment {
     addToWineCommentDiv() {
         const commentDiv = document.querySelector(`#wine-${this.wine_id}-comments`)
         commentDiv.append(this.renderCommentP())
+        this.formatCreatedAt()
     }
 
     renderCommentP() {
@@ -47,6 +48,20 @@ class Comment {
         <input type="submit" value="Create Comment">
         `
         commentForm.addEventListener('submit', this.handleNewCommentSubmit)
+    }
+
+    formatCreatedAt() {
+        const D = new Date(this.created_at)
+        const options = {
+            weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
+            hour: 'numeric', minute: 'numeric', second: 'numeric',
+            timeZone: 'America/Chicago',
+            timeZoneName: 'short'
+        }
+        const I = new Intl.DateTimeFormat('en-US', options).format(D)
+        
+        const dateTime = this.p.querySelector(`#comment-${this.id}-created-at`)
+        dateTime.innerText = I
     }
 
     handleNewCommentSubmit = (event) => {
