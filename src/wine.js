@@ -97,14 +97,29 @@ class Wine {
 
     static renderWineTOC() {
         wineTOCList.innerHTML = ""
-
-        Wine.all.map(wine => {
+        
+        const wines = this.alphaSortWine()
+        
+        wines.map(wine => {
             const li = document.createElement("li")
             li.id = wine.id + "-link-li"
             li.innerHTML = `
                 <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
             `
             wineTOCList.append(li)
+        })
+    }
+
+    static alphaSortWine() {
+        return Wine.all.sort((a, b) => {
+            let nameA = a.wine.toUpperCase()
+            let nameB = b.wine.toUpperCase()
+            if (nameA < nameB) {
+                return -1
+            } else {
+                return 1
+            }
+            return 0
         })
     }
 
