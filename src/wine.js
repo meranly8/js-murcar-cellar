@@ -11,7 +11,7 @@ class Wine {
         this.opened = opened
         this.image = image
         this.rating = rating
-        this.comment_ids = comment_ids.map(id => {return id.id})
+        this.comment_ids = (comment_ids === undefined) ? [] : comment_ids.map(id => {return id.id})
 
         this.tr = document.createElement("tr")
         this.tr.id = `wine-${id}`
@@ -123,16 +123,6 @@ class Wine {
         WineApi.updateWine(this)
     }
 
-    handleWineDeletion = () => {
-        this.tr.remove()
-        
-        WineApi.deleteWine(this.id)
-        
-        Wine.all.splice(this.index, 1)
-        Wine.renderWineTOC()
-        Wine.displayTotal()
-    }
-
     renderEditForm = () => {
         const form = this.tr.querySelector(`#edit-form-${this.id}-div`)
         const checked = (this.opened === true) ? "checked" : ""
@@ -186,6 +176,16 @@ class Wine {
         event.target.innerText = "Close Edit Form"
     }
 
+    handleWineDeletion = () => {
+        this.tr.remove()
+        
+        WineApi.deleteWine(this.id)
+        
+        Wine.all.splice(this.index, 1)
+        Wine.renderWineTOC()
+        Wine.displayTotal()
+    }
+
     showWineComments = (event) => {
         const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
         commentDiv.className = "form-open"
@@ -198,17 +198,17 @@ class Wine {
 
     hideWineComments = (event) => {
         const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
-            commentDiv.className = "form-closed"
+        commentDiv.className = "form-closed"
 
-            const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
-            addCommentBtn.className = "form-closed"
+        const addCommentBtn = document.querySelector(`#wine-${this.id}-add-cmt-btn`)
+        addCommentBtn.className = "form-closed"
 
-            const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
-            commentForm.className = "form-closed"
+        const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+        commentForm.className = "form-closed"
 
-            addCommentBtn.innerText = "Add Comment"
+        addCommentBtn.innerText = "Add Comment"
 
-            event.target.innerText = "View Comments"
+        event.target.innerText = "View Comments"
     }
 
     showWineCommentForm = (event) => {
