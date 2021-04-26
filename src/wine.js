@@ -61,7 +61,7 @@ class Wine {
             this.showEditForm(event)
 
         } else if (event.target.innerText === "View Comments") {
-            this.showComments(event)
+            this.showWineComments(event)
 
         } else if (event.target.innerText === "Delete Wine") {
             this.handleWineDeletion()
@@ -71,13 +71,13 @@ class Wine {
             event.target.innerText = "Update Details"
 
         } else if (event.target.innerText === "Close Comments") {
-            this.hideComments(event)
+            this.hideWineComments(event)
 
         } else if (event.target.innerText === "Add Comment") {
-            this.showCommentForm(event)
+            this.showWineCommentForm(event)
             
         } else if (event.target.innerText === "Close Comment Form") {
-            this.hideCommentForm(event)
+            this.hideWineCommentForm(event)
         }
         
     }
@@ -186,7 +186,7 @@ class Wine {
         event.target.innerText = "Close Edit Form"
     }
 
-    showComments = (event) => {
+    showWineComments = (event) => {
         const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
         commentDiv.className = "form-open"
         
@@ -196,7 +196,7 @@ class Wine {
         event.target.innerText = "Close Comments"
     }
 
-    hideComments = (event) => {
+    hideWineComments = (event) => {
         const commentDiv = document.querySelector(`#wine-${this.id}-comments`)
             commentDiv.className = "form-closed"
 
@@ -211,7 +211,7 @@ class Wine {
             event.target.innerText = "View Comments"
     }
 
-    showCommentForm = (event) => {
+    showWineCommentForm = (event) => {
         const c = new Comment({wine_id: this.id})
         c.renderCommentForm()
         
@@ -221,7 +221,7 @@ class Wine {
         event.target.innerText = "Close Comment Form"
     }
 
-    hideCommentForm = (event) => {
+    hideWineCommentForm = (event) => {
         const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
         commentForm.className = "form-closed"
         event.target.innerText = "Add Comment"
