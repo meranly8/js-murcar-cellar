@@ -22,15 +22,14 @@ class Comment {
 
     renderCommentP() {
         this.p.innerHTML = `
-            Created: ${this.created_at}<br>
-            Name: ${this.name}<br>
-            Comment: ${this.comment}<br>
+            <b>Created:</b> <container id="comment-${this.id}-created-at">${this.created_at}</container><br>
+            <b>Name:</b> ${this.name}<br>
+            <b>Comment:</b> ${this.comment}
             <button id="delete-${this.id}-comment" data-id=${this.id}>Delete</button>
         `
 
         const deleteBtn = this.p.querySelector(`#delete-${this.id}-comment`)
         deleteBtn.addEventListener('click', this.handleCommentDelete)
-        
         return this.p
     }
 
