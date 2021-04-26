@@ -175,6 +175,8 @@ class Wine {
     }
 
     showEditForm = (event) => {
+        this.renderEditForm()
+
         const editDiv = event.target.nextSibling.nextElementSibling.nextElementSibling
         editDiv.className = "form-opened"
         
