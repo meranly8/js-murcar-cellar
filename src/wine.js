@@ -22,10 +22,19 @@ class Wine {
     }
 
     updateDOM() {
-        wineTable.appendChild(this.renderWineTr())
-        this.detailsFormatting()
+        Wine.sortTable()
         Wine.displayTotal()
         Wine.renderWineTOC()
+    }
+
+    static sortTable() {
+        wineTable.innerHTML = ""
+        
+        const wines = Wine.alphaSortWine()
+        wines.map(wine => {
+            wineTable.appendChild(wine.renderWineTr())
+            wine.detailsFormatting()
+        })
     }
 
     renderWineTr(){
@@ -119,7 +128,6 @@ class Wine {
             } else {
                 return 1
             }
-            return 0
         })
     }
 
