@@ -24,7 +24,7 @@ class WineApi {
             country: countryInput.value,
             year: yearInput.value,
             price: priceInput.value,
-            opened: openedInput.value,
+            opened: openedInput.checked,
             rating: ratingInput.value,
             image: imageInput.value
         }
