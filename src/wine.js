@@ -339,6 +339,22 @@ class Wine {
         `
     }
 
+    handleNewCommentSubmit = (event) => {
+        event.preventDefault()
+        const comment = {
+            name: document.querySelector(`#comment-name-${this.id}`).value,
+            comment: document.querySelector(`#comment-comment-${this.id}`).value,
+            wine_id: this.id
+        }
+
+        const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+        commentForm.reset()
+        
+        this.hideWineCommentForm(event)
+        
+        CommentApi.createComment(comment)
+    }
+
     hideWineCommentForm = (event) => {
         const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
         commentForm.className = "form-closed"
