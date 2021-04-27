@@ -162,7 +162,7 @@ class Wine {
         })
     }
 
-    static sortWineYear () {
+    static sortWineYear() {
         return Wine.all.sort((a, b) => {
             return a.year - b.year
         })
@@ -177,6 +177,29 @@ class Wine {
             wineTable.appendChild(wine.renderWineTr())
             wine.detailsFormatting()
 
+            const li = document.createElement("li")
+            li.id = wine.id + "-link-li"
+            li.innerHTML = `
+                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
+            `
+            wineTOCList.append(li)
+        })
+    }
+
+    static sortWinePrice() {
+        return Wine.all.sort((a, b) => {
+            return a.price - b.price
+        })
+    }
+
+    static sortDOMByPrice() {
+        wineTable.innerHTML = ""
+        wineTOCList.innerHTML = ""
+
+        const wines = Wine.sortWinePrice()
+        wines.map(wine => {
+            wineTable.appendChild(wine.renderWineTr())
+            wine.detailsFormatting()
 
             const li = document.createElement("li")
             li.id = wine.id + "-link-li"
