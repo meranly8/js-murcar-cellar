@@ -51,7 +51,7 @@ class Wine {
 
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> <container id="opened-detail-${this.id}">${this.opened}</container><br>
-                <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br>
+                <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br><br>
                 <b>Added:</b> <container id="added-detail-${this.id}">${this.created_at}</container><br><br>
                 
                 <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br>
@@ -100,6 +100,15 @@ class Wine {
         if (this.rating === null || this.rating === "") ratingDetail.innerText = "Not yet rated"
 
         this.opened === false || this.rating === "" ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
+
+        this.formatWineCreatedAt()
+    }
+
+    formatWineCreatedAt = () => {
+        const createdAt = this.tr.querySelector(`#added-detail-${this.id}`)
+        const shortDate = new Date(this.created_at).toLocaleDateString()
+        
+        createdAt.innerText = shortDate
     }
 
     static displayTotal() {
