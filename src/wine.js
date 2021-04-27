@@ -170,7 +170,7 @@ class Wine {
         this.country = this.tr.querySelector(`#edit-country-${this.id}`).value
         this.year = this.tr.querySelector(`#edit-year-${this.id}`).value
         this.price = this.tr.querySelector(`#edit-price-${this.id}`).value
-        this.opened = this.tr.querySelector(`#edit-opened-${this.id}`).value
+        this.opened = this.tr.querySelector(`#edit-opened-${this.id}`).checked
         this.rating = this.tr.querySelector(`#edit-rating-${this.id}`).value
         this.image = this.tr.querySelector(`#edit-image-${this.id}`).value
 
