@@ -198,7 +198,7 @@ class Wine {
                     $<input type="number" name="price" id="edit-price-${this.id}" min=0 class="edit-form-column-2" value=${this.price}><br>
                 </label><br>
                 <label>Opened:
-                    <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened} ${checked}><br>
+                    <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened}><br>
                 </label><br>
                 <label>Rating:
                     <input type="number" name="rating" id="edit-rating-${this.id}" min=0 max=5 step=.5 class="edit-form-column-2" value=${this.rating}><br>
