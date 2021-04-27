@@ -112,7 +112,11 @@ class Wine {
     formatWineRating = () => {
         const ratingDetail = document.querySelector(`#rating-detail-${this.id}`)
 
-        if (this.rating === null || this.rating === "") ratingDetail.innerText = "Not yet rated"
+        if (this.rating === null || this.rating === "") {
+            ratingDetail.innerText = "Not yet rated"
+        } else {
+            ratingDetail.innerText = `${this.rating} / 5`
+        }
     }
 
     formatWineCreatedAt = () => {
