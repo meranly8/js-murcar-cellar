@@ -207,6 +207,8 @@ class Wine {
         </form><br>
         <button id="delete-${this.id}-button" data-id=${this.id}>Delete Wine</button><br><br>
         `
+        const opened = this.tr.querySelector(`#edit-opened-${this.id}`)
+        if (this.opened === true || this.opened === "true") opened.checked = true
     }
 
     showEditForm = (event) => {
