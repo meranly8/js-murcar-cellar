@@ -325,6 +325,20 @@ class Wine {
         event.target.innerText = "Close Comment Form"
     }
 
+    renderCommentForm = (commentForm) => {
+        commentForm.innerHTML = `
+            <br>
+            <label>
+                Name: <input type="text" name="comment-name" id="comment-name-${this.id}">
+            </label><br>
+            <label>
+                Comment: <textarea name="comment-comment" id="comment-comment-${this.id}"></textarea>
+            </label>
+            <input type="hidden" name="comment-wine_id" id="comment-wine_id-${this.id}" value="${this.id}"><br>
+            <input type="submit" value="Create Comment">
+        `
+    }
+
     hideWineCommentForm = (event) => {
         const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
         commentForm.className = "form-closed"
