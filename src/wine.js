@@ -162,6 +162,12 @@ class Wine {
         })
     }
 
+    static sortWineYear () {
+        return Wine.all.sort(a, b => {
+            a.year - b.year
+        })
+    }
+
     handleWineUpdateSubmit = (event) => {
         event.preventDefault()
         
