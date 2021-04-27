@@ -124,21 +124,26 @@ class Wine {
 
     static displayTotal() {
         wineTotal.innerText = Wine.all.length
+        Wine.all.length === 0 ? countryTotalsBtn.className = 'form-closed' : countryTotalsBtn.className = 'form-open'
     }
 
     static renderWineTOC() {
         wineTOCList.innerHTML = ""
         
-        const wines = this.alphaSortWine()
-        
-        wines.map(wine => {
-            const li = document.createElement("li")
-            li.id = wine.id + "-link-li"
-            li.innerHTML = `
-                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
-            `
-            wineTOCList.append(li)
-        })
+        if (Wine.all.length === 0) {
+            wineTOCList.innerHTML = "No wines in collection yet."
+        } else {
+            const wines = this.alphaSortWine()
+            
+            wines.map(wine => {
+                const li = document.createElement("li")
+                li.id = wine.id + "-link-li"
+                li.innerHTML = `
+                    <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
+                `
+                wineTOCList.append(li)
+            })
+        }
     }
 
     static alphaSortWine() {
