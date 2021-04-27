@@ -10,6 +10,9 @@ const addWineBtn = document.querySelector("#add-wine-btn")
 addWineBtn.state = "Closed"
 addWineBtn.addEventListener("click", showWineForm)
 
+const sortFilter = document.querySelector(`#sort-filter-list`)
+sortFilter.addEventListener("change", handleSortFilter)
+
 const wineTOCList = document.querySelector("#wine-toc-list")
 
 const wineTable = document.querySelector("#wine-table")
@@ -63,6 +66,21 @@ function showWineForm() {
         wineForm.className = "form-closed"
         addWineBtn.state = "Closed"
         addWineBtn.innerText = "Add Wine"
+    }
+}
+
+function handleSortFilter(event) {
+    debugger
+    if (event.target.value === "by-year") {
+
+    } else if (event.target.value === "by-price") {
+
+    } else if (event.target.value === "opened") {
+
+    } else if (event.target.value === "unopened") {
+
+    } else if (event.target.value === "by-wine") {
+
     }
 }
 
