@@ -11,10 +11,13 @@ class WineApi {
                 w.updateDOM()
             })
             CommentApi.fetchComments()
+            Wine.renderWineTOC()
+            Wine.displayTotal()
         })
     }
 
     static createWine() {
+        
         const formData = {
             wine: wineInput.value,
             region: regionInput.value,
@@ -25,7 +28,7 @@ class WineApi {
             rating: ratingInput.value,
             image: imageInput.value
         }
-    
+
         const configObj = {
             method: "POST",
             headers: {
