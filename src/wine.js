@@ -94,14 +94,19 @@ class Wine {
     }
 
     detailsFormatting = () => {
-        const ratingDetail = document.querySelector(`#rating-detail-${this.id}`)
+        
         const openedDetail = document.querySelector(`#opened-detail-${this.id}`)
         
-        if (this.rating === null || this.rating === "") ratingDetail.innerText = "Not yet rated"
 
-        this.opened === false || this.rating === "" ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
-
+        this.opened === false || this.opened === "" ? openedDetail.innerText = "No" : openedDetail.innerText = "Yes"
+        this.formatWineRating()
         this.formatWineCreatedAt()
+    }
+    
+    formatWineRating = () => {
+            const ratingDetail = document.querySelector(`#rating-detail-${this.id}`)
+
+            if (this.rating === null || this.rating === "") ratingDetail.innerText = "Not yet rated"
     }
 
     formatWineCreatedAt = () => {
@@ -110,6 +115,8 @@ class Wine {
         
         createdAt.innerText = shortDate
     }
+
+    
 
     static displayTotal() {
         wineTotal.innerText = Wine.all.length
