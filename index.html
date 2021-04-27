@@ -10,11 +10,10 @@
     <h2>World Wines</h2>
     <h4>Total Wines: <container id="wine-total"></container><br><button id="totals-by-country-btn">Totals by Country</button></h4>
     <div id="totals-by-country" class="form-closed">
+    </div>
 
-    </div>
-    <div id="btn-container">
-      <button id="add-wine-btn">Add Wine</button><br>
-    </div>
+    <button id="add-wine-btn">Add Wine</button><br>
+
     <form id="wine-form" class="form-closed">
       <table>
         <th>
@@ -48,18 +47,29 @@
       </table>
       <input type="submit" value="Create Wine"><br>
     </form>
-    
+    <br><br>
+    <b>Sort or Filter:</b>
+    <select name="sort-filter" id="sort-filter-list">
+      <option value="by-wine" selected>By Wine</option>
+      <option value="by-year">By Year</option>
+      <option value="by-price">By Price</option>
+      <option value="opened">Opened</option>
+      <option value="unopened">Unopened</option>
+    </select><br>
+
     <div id="wine-toc">
       <h3>Wine List</h3>
       <ul id="wine-toc-list">
 
       </ul>
     </div>
+
     <div id="wine-container">
         <table id="wine-table">
 
         </table>
     </div>
+
     <script type="application/javascript" src="src/comment.js" charset="UTF-8"></script>
     <script type="application/javascript" src="src/commentApi.js" charset="UTF-8"></script>
     <script type="application/javascript" src="src/wine.js" charset="UTF-8"></script>
