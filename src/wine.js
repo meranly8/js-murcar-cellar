@@ -223,7 +223,7 @@ class Wine {
     showEditForm = (event) => {
         this.renderEditForm()
 
-        const editDiv = event.target.nextSibling.nextElementSibling.nextElementSibling
+        const editDiv = this.tr.querySelector(`#edit-form-${this.id}-div`)
         editDiv.className = "form-opened"
         
         const editForm = editDiv.querySelector(`#edit-form-${this.id}`)
