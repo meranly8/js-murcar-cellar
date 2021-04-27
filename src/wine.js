@@ -316,11 +316,11 @@ class Wine {
     }
 
     showWineCommentForm = (event) => {
-        const c = new Comment({wine_id: this.id})
-        c.renderCommentForm()
-        
         const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
+        this.renderCommentForm(commentForm)
+
         commentForm.className = "form-open"
+        commentForm.addEventListener('submit', this.handleNewCommentSubmit)
 
         event.target.innerText = "Close Comment Form"
     }
