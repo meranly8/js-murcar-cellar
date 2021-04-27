@@ -70,17 +70,17 @@ function showWineForm() {
 }
 
 function handleSortFilter(event) {
-    debugger
     if (event.target.value === "by-year") {
-
+        Wine.sortDOMByYear()
     } else if (event.target.value === "by-price") {
-
+        Wine.sortDOMByPrice()
     } else if (event.target.value === "opened") {
 
     } else if (event.target.value === "unopened") {
 
     } else if (event.target.value === "by-wine") {
-
+        Wine.renderWineTOC()
+        Wine.sortTable()
     }
 }
 
