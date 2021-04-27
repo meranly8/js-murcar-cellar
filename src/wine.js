@@ -175,7 +175,7 @@ class Wine {
 
     renderEditForm = () => {
         const form = this.tr.querySelector(`#edit-form-${this.id}-div`)
-        const checked = (this.opened === true) ? "checked" : ""
+
         form.innerHTML = `
         <form id="edit-form-${this.id}" data-id=${this.id}>
             <table>
@@ -194,8 +194,8 @@ class Wine {
                 </label>
                 </th>
                 <th>
-                <label >Price:
-                    $<input type="number" name="price" id="edit-price-${this.id}" class="edit-form-column-2" value=${this.price}><br>
+                <label>Price:
+                    $<input type="number" name="price" id="edit-price-${this.id}" min=0 class="edit-form-column-2" value=${this.price}><br>
                 </label><br>
                 <label>Opened:
                     <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened} ${checked}><br>
