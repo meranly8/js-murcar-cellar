@@ -33,13 +33,13 @@
         </th>
         <th>
           <label >Price:
-            $<input type="number" name="price" id="wine-price" class="form-column-2"><br>
+            $<input type="number" name="price" id="wine-price" min=0 class="form-column-2"><br>
           </label><br>
           <label >Opened:
             <input type="checkbox" name="opened" id="wine-opened" class="form-column-2"><br>
           </label><br>
           <label >Rating:
-            <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="form-column-2"><br>
+            <input type="number" name="rating" id="wine-rating" min=0 max=5 step=.5 class="form-column-2"> / 5<br>
           </label><br>
           <label >Label Image Link:
             <input type="text" name="image" id="wine-image" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="form-column-2"><br><br>
