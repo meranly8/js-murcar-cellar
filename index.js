@@ -152,18 +152,22 @@ function handleFilter(event) {
     if (event.target.value === "All Wines") {
         Wine.sortTable()
         Wine.renderWineTOC()
+        CommentApi.fetchFilteredComments(Wine.all)
 
     } else if (event.target.value === "Unopened") {
         const unopenedWines = Wine.all.filter(wine => wine.opened === false || wine.opened === "")
         Wine.sortFilterDOMBy(unopenedWines)
+        CommentApi.fetchFilteredComments(unopenedWines)
 
     } else if (event.target.value === "Opened") {
         const openedWines = Wine.all.filter(wine => wine.opened === true || wine.opened === "true")
         Wine.sortFilterDOMBy(openedWines)
+        CommentApi.fetchFilteredComments(openedWines)
 
     } else {
         const countryWines = Wine.all.filter(wine => wine.country === event.target.value)
         Wine.sortFilterDOMBy(countryWines)
+        CommentApi.fetchFilteredComments(countryWines)
         
     }
 }
