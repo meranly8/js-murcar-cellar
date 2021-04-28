@@ -57,6 +57,7 @@ function uniqueCountryTotals() {
         const total = Wine.all.filter(wine => wine.country === country).length
 
         container.innerHTML = `<b>${country}:</b> ${total}<br>`
+        container.className = "total-container"
         container.id = country
         totalsContainer.appendChild(container)
     })
