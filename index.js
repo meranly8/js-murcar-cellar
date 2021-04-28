@@ -10,11 +10,12 @@ const addWineBtn = document.querySelector("#add-wine-btn")
 addWineBtn.state = "Closed"
 addWineBtn.addEventListener("click", showWineForm)
 
-const sortBtns = document.querySelector(`#sort-btns`)
+const sortBtns = document.querySelector("#sort-btns")
 sortBtns.addEventListener("click", handleSort)
 
-const filterList = document.querySelector(`#filter-list`)
+const filterList = document.querySelector("#filter-list")
 filterList.addEventListener("change", handleFilter)
+const filteredTotal = document.querySelector("#filtered-total")
 
 const wineTOCList = document.querySelector("#wine-toc-list")
 
@@ -114,11 +115,13 @@ function showWineForm() {
 
 function handleSort(event) {
     clearBtnActivation()
+    filteredTotal.innerText = ""
     if (event.target.innerText === "Wine") {
         Wine.sortTable()
         Wine.renderWineTOC()
         CommentApi.fetchComments()
         event.target.className = "activated"
+        
 
     } else if (event.target.innerText === "Year") {
         const wines = Wine.sortWineYear()
@@ -149,6 +152,7 @@ function clearBtnActivation() {
 }
 
 function handleFilter(event) {
+    filteredTotal.innerText = ""
     if (event.target.value === "All Wines") {
         Wine.sortTable()
         Wine.renderWineTOC()
@@ -158,16 +162,19 @@ function handleFilter(event) {
         const unopenedWines = Wine.all.filter(wine => wine.opened === false || wine.opened === "")
         Wine.sortFilterDOMBy(unopenedWines)
         CommentApi.fetchFilteredComments(unopenedWines)
+        filteredTotal.innerText = ` (${unopenedWines.length})`
 
     } else if (event.target.value === "Opened") {
         const openedWines = Wine.all.filter(wine => wine.opened === true || wine.opened === "true")
         Wine.sortFilterDOMBy(openedWines)
         CommentApi.fetchFilteredComments(openedWines)
+        filteredTotal.innerText = ` (${openedWines.length})`
 
     } else {
         const countryWines = Wine.all.filter(wine => wine.country === event.target.value)
         Wine.sortFilterDOMBy(countryWines)
         CommentApi.fetchFilteredComments(countryWines)
+        filteredTotal.innerText = ` (${countryWines.length})`
         
     }
 }
