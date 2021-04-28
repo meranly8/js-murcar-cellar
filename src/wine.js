@@ -162,18 +162,6 @@ class Wine {
         })
     }
 
-    static alphaSortCountry() {
-        return Wine.all.sort((a, b) => {
-            let countryA = a.country.toUpperCase()
-            let countryB = b.country.toUpperCase()
-            if (countryA < countryB) {
-                return -1
-            } else {
-                return 1
-            }
-        })
-    }
-
     static sortWineYear() {
         return Wine.all.sort((a, b) => {
             return a.year - b.year
@@ -183,6 +171,18 @@ class Wine {
     static sortWinePrice() {
         return Wine.all.sort((a, b) => {
             return b.price - a.price
+        })
+    }
+
+    static alphaSortCountry() {
+        return Wine.all.sort((a, b) => {
+            let countryA = a.country.toUpperCase()
+            let countryB = b.country.toUpperCase()
+            if (countryA < countryB) {
+                return -1
+            } else {
+                return 1
+            }
         })
     }
 
