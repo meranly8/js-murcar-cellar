@@ -76,9 +76,11 @@ function handleSort(event) {
     if (event.target.innerText === "Wine") {
         Wine.sortTable()
     } else if (event.target.innerText === "Year") {
-        Wine.sortDOMByYear()
+        const wines = Wine.sortWineYear()
+        Wine.sortDOMBy(wines)
     } else if (event.target.innerText === "Price") {
-        Wine.sortDOMByPrice()
+        const wines = Wine.sortWinePrice()
+        Wine.sortDOMBy(wines)
     }
 }
 
