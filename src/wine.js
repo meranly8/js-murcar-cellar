@@ -235,12 +235,12 @@ class Wine {
                     <input type="" name="country" id="edit-country-${this.id}" class="edit-form-column-1" value="${this.country}"><br>
                 </label><br>
                 <label>Year:
-                    <input type="number" name="year" id="edit-year-${this.id}" min=1900 class="edit-form-column-1" value="${this.year}"><br>
+                    <input type="number" name="year" id="edit-year-${this.id}" class="edit-year" min=1900 value="${this.year}"><br>
                 </label>
                 </th>
                 <th>
                 <label>Price:
-                    $<input type="number" name="price" id="edit-price-${this.id}" min=0 class="edit-form-column-2" value=${this.price}><br>
+                    $<input type="number" name="price" id="edit-price-${this.id}" min=0 class="edit-form-column-2, edit-price" value=${this.price}><br>
                 </label><br>
                 <label>Opened:
                     <input type="checkbox" name="opened" id="edit-opened-${this.id}" class="edit-form-column-2" value=${this.opened}><br>
@@ -322,7 +322,7 @@ class Wine {
         commentForm.innerHTML = `
             <br>
             <label>
-                Name: <input type="text" name="comment-name" id="comment-name-${this.id}">
+                Name: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="comment-name" id="comment-name-${this.id}">
             </label><br>
             <label>
                 Comment: <textarea name="comment-comment" id="comment-comment-${this.id}"></textarea>
