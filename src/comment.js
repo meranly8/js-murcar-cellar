@@ -11,6 +11,7 @@ class Comment {
         this.p = document.createElement("p")
         this.p.id = `comment-${id}`
         this.p.dataset.id = wine_id
+        this.p.className = "comment-p"
 
         Comment.all.push(this)
     }
