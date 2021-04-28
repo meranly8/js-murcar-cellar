@@ -48,11 +48,11 @@
       <input type="submit" value="Create Wine"><br>
     </form>
     <br><br>
-    <b>Sort or Filter:</b>
-    <select name="sort-filter" id="sort-filter-list">
-      <option value="by-wine" selected>By Wine</option>
-      <option value="by-year">By Year</option>
-      <option value="by-price">By Price</option>
+    <div id="sort-btns">
+      <b>Sort By:</b> <button id="wine-sort-btn">Wine</button> <button id="year-sort-btn">Year</button> <button id="price-sort-btn">Price</button><br><br>
+    </div>
+    <b>Filter:</b>
+    <select name="sort-filter" id="filter-list">
       <option value="opened">Opened</option>
       <option value="unopened">Unopened</option>
     </select><br>
