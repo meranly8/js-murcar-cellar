@@ -223,7 +223,7 @@ class Wine {
 
         form.innerHTML = `
         <form id="edit-form-${this.id}" data-id=${this.id}>
-            <table>
+            <table id="wine-edit-form">
                 <th>
                 <label>Wine:
                     <input type="text" name="wine" id="edit-wine-${this.id}" class="edit-form-column-1" value="${this.wine}"><br>
