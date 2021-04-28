@@ -112,21 +112,35 @@ function showWineForm() {
 }
 
 function handleSort(event) {
+    clearBtnActivation()
     if (event.target.innerText === "Wine") {
         Wine.sortTable()
         Wine.renderWineTOC()
+        event.target.className = "activated"
 
     } else if (event.target.innerText === "Year") {
         const wines = Wine.sortWineYear()
         Wine.sortFilterDOMBy(wines)
+        event.target.className = "activated"
 
     } else if (event.target.innerText === "Price") {
         const wines = Wine.sortWinePrice()
         Wine.sortFilterDOMBy(wines)
+        event.target.className = "activated"
+
     } else if (event.target.innerText === "Country") {
         const wines = Wine.alphaSortCountry()
         Wine.sortFilterDOMBy(wines)
+        event.target.className = "activated"
+
     }
+}
+
+function clearBtnActivation() {
+    document.querySelector(`#wine-sort-btn`).classList.remove("activated")
+    document.querySelector(`#year-sort-btn`).classList.remove("activated")
+    document.querySelector(`#price-sort-btn`).classList.remove("activated")
+    document.querySelector(`#country-sort-btn`).classList.remove("activated")
 }
 
 function handleFilter(event) {
