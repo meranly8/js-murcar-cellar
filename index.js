@@ -37,13 +37,14 @@ function showCountryTotals() {
     if (totalsContainer.className === "form-closed") {
         totalsContainer.className = "form-opened"
         countryTotalsBtn.innerText = "Close Totals"
-
-        const distinctCountries = [...new Set(Wine.all.map(wine => wine.country))] // grab unquie countries for display
+        
+        uniqueCountryTotals()
     
     } else if (totalsContainer.className === "form-opened") {
         totalsContainer.className = "form-closed"
         countryTotalsBtn.innerText = "Totals by Country"
-
+        
+        totalsContainer.innerHTML = ""
     }
 }
 
