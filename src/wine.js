@@ -174,7 +174,7 @@ class Wine {
         })
     }
 
-    static sortDOMBy(wines) {
+    static sortFilterDOMBy(wines) {
         wineTable.innerHTML = ""
         wineTOCList.innerHTML = ""
 
