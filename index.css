@@ -48,6 +48,10 @@ th h3{
     width: 75px;
 }
 
+.edit-price, .edit-year{
+    width: 50px
+}
+
 #wine-country{
     width: 135px
 }
@@ -58,6 +62,10 @@ th h3{
 
 label{
     font-weight: bold;
+}
+
+textarea{
+    vertical-align: top;
 }
 
 .text-center, #wine-form{
@@ -79,5 +87,8 @@ body{
 
 #wine-form, #totals-by-country{
     background-color: #f9f9f9;
-    
+}
+
+#add-wine-table{
+    width: 100%;
 }
