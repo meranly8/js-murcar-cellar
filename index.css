@@ -1,3 +1,13 @@
+.total-container{
+    position: relative;
+    left: 40%
+}
+
+#totals-by-country-btn{
+    position: relative;
+    left: 0%
+}
+
 .wine-label{
     height: 15rem;
     width: auto
