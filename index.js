@@ -117,21 +117,25 @@ function handleSort(event) {
     if (event.target.innerText === "Wine") {
         Wine.sortTable()
         Wine.renderWineTOC()
+        CommentApi.fetchComments()
         event.target.className = "activated"
 
     } else if (event.target.innerText === "Year") {
         const wines = Wine.sortWineYear()
         Wine.sortFilterDOMBy(wines)
+        CommentApi.fetchComments()
         event.target.className = "activated"
 
     } else if (event.target.innerText === "Price") {
         const wines = Wine.sortWinePrice()
         Wine.sortFilterDOMBy(wines)
+        CommentApi.fetchComments()
         event.target.className = "activated"
 
     } else if (event.target.innerText === "Country") {
         const wines = Wine.alphaSortCountry()
         Wine.sortFilterDOMBy(wines)
+        CommentApi.fetchComments()
         event.target.className = "activated"
 
     }
