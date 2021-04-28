@@ -75,20 +75,30 @@ function showWineForm() {
 function handleSort(event) {
     if (event.target.innerText === "Wine") {
         Wine.sortTable()
+        Wine.renderWineTOC()
+
     } else if (event.target.innerText === "Year") {
         const wines = Wine.sortWineYear()
-        Wine.sortDOMBy(wines)
+        Wine.sortFilterDOMBy(wines)
+
     } else if (event.target.innerText === "Price") {
         const wines = Wine.sortWinePrice()
-        Wine.sortDOMBy(wines)
+        Wine.sortFilterDOMBy(wines)
     }
 }
 
 function handleFilter(event) {
-    if (event.target.value === "unopened") {
-        
+    if (event.target.value === "all-wines") {
+        Wine.sortTable()
+        Wine.renderWineTOC()
+
+    } else if (event.target.value === "unopened") {
+        const unopenedWines = Wine.all.filter(wine => wine.opened === false || wine.opened === "")
+        Wine.sortFilterDOMBy(unopenedWines)
+
     } else if (event.target.value === "opened") {
-        
+        const openedWines = Wine.all.filter(wine => wine.opened === true || wine.opened === "true")
+        Wine.sortFilterDOMBy(openedWines)
     }
 }
 
