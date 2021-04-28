@@ -33,7 +33,6 @@ const imageInput = document.querySelector("#wine-image")
 
 wineForm.addEventListener("submit", handleNewWineSubmit)
 
-// table with distinctCountries elements as headers with ids
 function showCountryTotals() {
     if (totalsContainer.className === "form-closed") {
         totalsContainer.className = "form-opened"
@@ -44,8 +43,8 @@ function showCountryTotals() {
     } else if (totalsContainer.className === "form-opened") {
         totalsContainer.className = "form-closed"
         countryTotalsBtn.innerText = "Totals by Country"
-    }
 
+    }
 }
 
 function handleNewWineSubmit(event) {
@@ -84,21 +83,29 @@ function handleSort(event) {
     } else if (event.target.innerText === "Price") {
         const wines = Wine.sortWinePrice()
         Wine.sortFilterDOMBy(wines)
+    } else if (event.target.innerText === "Country") {
+        const wines = Wine.alphaSortCountry()
+        Wine.sortFilterDOMBy(wines)
     }
 }
 
 function handleFilter(event) {
-    if (event.target.value === "all-wines") {
+    if (event.target.value === "All Wines") {
         Wine.sortTable()
         Wine.renderWineTOC()
 
-    } else if (event.target.value === "unopened") {
+    } else if (event.target.value === "Unopened") {
         const unopenedWines = Wine.all.filter(wine => wine.opened === false || wine.opened === "")
         Wine.sortFilterDOMBy(unopenedWines)
 
-    } else if (event.target.value === "opened") {
+    } else if (event.target.value === "Opened") {
         const openedWines = Wine.all.filter(wine => wine.opened === true || wine.opened === "true")
         Wine.sortFilterDOMBy(openedWines)
+
+    } else {
+        const countryWines = Wine.all.filter(wine => wine.country === event.target.value)
+        Wine.sortFilterDOMBy(countryWines)
+        
     }
 }
 
