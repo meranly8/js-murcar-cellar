@@ -164,9 +164,9 @@ class Wine {
 
     static alphaSortCountry() {
         return Wine.all.sort((a, b) => {
-            let nameA = a.country.toUpperCase()
-            let nameB = b.country.toUpperCase()
-            if (nameA < nameB) {
+            let countryA = a.country.toUpperCase()
+            let countryB = b.country.toUpperCase()
+            if (countryA < countryB) {
                 return -1
             } else {
                 return 1
@@ -192,6 +192,7 @@ class Wine {
 
         wines.map(wine => {
             wineTable.appendChild(wine.renderWineTr())
+            
             wine.detailsFormatting()
 
             const li = document.createElement("li")
