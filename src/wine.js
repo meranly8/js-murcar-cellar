@@ -54,7 +54,7 @@ class Wine {
                 <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br><br>
                 <b>Added:</b> <container id="added-detail-${this.id}">${this.created_at}</container><br><br>
                 
-                <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br>
+                <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br><br>
                 <div id="wine-${this.id}-comments" class="form-closed">
                 </div>
 
@@ -62,7 +62,7 @@ class Wine {
                 <form id="add-cmt-wine-${this.id}" class="form-closed">
                 </form>
             </th>
-            <th><img src="${this.image}" class="wine-label" alt="${this.wine} label"></th><br>
+            <th id="label"><img src="${this.image}" class="wine-label" alt="${this.wine} label"></th><br>
         `
         return this.tr
     }
@@ -352,7 +352,6 @@ class Wine {
         const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
         commentForm.className = "form-closed"
         
-        const commentFormBtn = event.target.previousElementSibling
-        commentFormBtn.innerText = "Add Comment"
+        event.target.innerText = "Add Comment"
     }
 }
