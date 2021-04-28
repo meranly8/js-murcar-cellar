@@ -47,6 +47,20 @@ function showCountryTotals() {
     }
 }
 
+function uniqueCountryTotals() {
+    const sortedWines = Wine.alphaSortCountry()
+    const distinctCountries = [...new Set(sortedWines.map(wine => wine.country))]
+    
+    return distinctCountries.map(country => {
+        const container = document.createElement("container")
+        const total = Wine.all.filter(wine => wine.country === country).length
+
+        container.innerHTML = `<b>${country}:</b> ${total}<br>`
+        container.id = country
+        totalsContainer.appendChild(container)
+    })
+}
+
 function handleNewWineSubmit(event) {
     event.preventDefault()
     WineApi.createWine()
