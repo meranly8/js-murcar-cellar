@@ -8,12 +8,9 @@
   <body>
     <h1>MURCAR Cellar</h1>
     <h2>World Wines</h2>
-    <h4>Total Wines: <container id="wine-total"></container><br><button id="totals-by-country-btn">Totals by Country</button></h4>
-    <div id="totals-by-country" class="form-closed">
-    </div>
-
+    <br>
     <button id="add-wine-btn">Add Wine</button><br>
-
+    
     <form id="wine-form" class="form-closed">
       <table>
         <th>
@@ -47,15 +44,15 @@
       </table>
       <input type="submit" value="Create Wine"><br>
     </form>
-    <br><br>
+    <h4>Total Wines: <container id="wine-total"></container><br><button id="totals-by-country-btn">Totals by Country</button></h4>
+    <div id="totals-by-country" class="form-closed">
+    </div>
+    <br>
     <div id="sort-btns">
-      <b>Sort By:</b> <button id="wine-sort-btn">Wine</button> <button id="year-sort-btn">Year</button> <button id="price-sort-btn">Price</button><br><br>
+      <b>Sort By:</b> <button id="wine-sort-btn">Wine</button> <button id="year-sort-btn">Year</button> <button id="price-sort-btn">Price</button> <button id="country-sort-btn">Country</button><br><br>
     </div>
     <b>Filter:</b>
     <select name="sort-filter" id="filter-list">
-      <option value="all-wines" selected>All Wines</option>
-      <option value="opened">Opened</option>
-      <option value="unopened">Unopened</option>
     </select><br>
 
     <div id="wine-toc">
