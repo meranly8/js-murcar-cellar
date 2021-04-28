@@ -13,6 +13,7 @@ class WineApi {
             CommentApi.fetchComments()
             Wine.renderWineTOC()
             Wine.displayTotal()
+            addFilterOptions()
         })
     }
 
@@ -45,6 +46,7 @@ class WineApi {
             const w = new Wine({id: wine.id, ...wine.attributes})
             resetAddForm()
             w.updateDOM()
+            addFilterOptions()
         })
     }
 
@@ -89,6 +91,9 @@ class WineApi {
 
         fetch(`${this.winesURL}/${id}`, configObj)
         .then(resp => resp.json())
-        .then(json => alert(json.message))
+        .then(json => {
+            alert(json.message)
+            addFilterOptions()
+        })
     }
 }
