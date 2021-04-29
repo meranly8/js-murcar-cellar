@@ -13,6 +13,7 @@ git clone git@github.com:meranly8/js-murcar-cellar.git
 cd js-murcar-cellar
 ```
 
+
 In another terminal, in appropriate directory, clone the code for ***back-end*** & cd into directory.
 ```ruby
 git clone git@github.com:meranly8/rails-api-murcar-cellar.git
@@ -24,7 +25,8 @@ Launch ***back-end*** web server using terminal by calling
 ```ruby
 rails s
 ```
-Navigate to [localhost:3000](localhost:3000/wines) to see data.
+Navigate to [localhost:3000/wines](http://localhost:3000/wines) to see data.
+
 
 Open web application ***front-end*** using terminal by calling
 ```ruby
