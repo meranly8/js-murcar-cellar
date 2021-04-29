@@ -14,17 +14,19 @@ class CommentApi {
     }
 
     static fetchFilteredComments(wines) {
-        if (Array.isArray(wines)) {wines.map(wine => {
-            fetch(`${WineApi.winesURL}/${wine.id}`)
-            .then(resp => resp.json())
-            .then(json => {
-                const comments = json["included"]
-                comments.map(comment => {
-                    const c = new Comment({id: comment.id, ...comment.attributes})
-                    c.addToWineCommentDiv()
+        if (Array.isArray(wines)) {
+            wines.map(wine => {
+                fetch(`${WineApi.winesURL}/${wine.id}`)
+                .then(resp => resp.json())
+                .then(json => {
+                    const comments = json["included"]
+                    comments.map(comment => {
+                        const c = new Comment({id: comment.id, ...comment.attributes})
+                        c.addToWineCommentDiv()
+                    })
                 })
             })
-        })} else {
+        } else {
             fetch(`${WineApi.winesURL}/${wines.id}`)
             .then(resp => resp.json())
             .then(json => {
