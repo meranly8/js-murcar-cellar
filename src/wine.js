@@ -352,7 +352,8 @@ class Wine {
     hideWineCommentForm = (event) => {
         const commentForm = document.querySelector(`#add-cmt-wine-${this.id}`)
         commentForm.className = "form-closed"
-        
-        event.target.innerText = "Add Comment"
+
+        const addCommentBtn = this.tr.querySelector(`#wine-${this.id}-add-cmt-btn`)
+        addCommentBtn.innerText = "Add Comment"
     }
 }
