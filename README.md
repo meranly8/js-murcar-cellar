@@ -1,6 +1,6 @@
 # MURCAR Cellar
 ## About
-JavaScript front-end application using [rails-api-murcar-cellar](https://github.com/meranly8/rails-api-murcar-cellar) on the back-end to view, add, update, and delete wines in the cellar collection and view, add, and delete comments on the wines. The wine collection can be sorted and filtered, as well as show the different countries with their number of wines in the collection. MURCAR is the initials of my parents & this application & API are inspired by their appreciation for the fermented grapes.
+JavaScript front-end application using [rails-api-murcar-cellar](https://github.com/meranly8/rails-api-murcar-cellar) on the back-end to view, add, update, and delete wines in the cellar and view, add, and delete comments on the wines. The wine collection can be sorted and filtered, as well as show the different countries with their number of wines in the collection. MURCAR is the initials of my parents & this application & API are inspired by their appreciation for the fermented grapes.
 
 ![mosel valley][logo]
 
@@ -12,8 +12,8 @@ In terminal, in appropriate directory, clone the code for ***front-end*** & cd i
 git clone git@github.com:meranly8/js-murcar-cellar.git
 cd js-murcar-cellar
 ```
-
-
+  
+  
 In another terminal, in appropriate directory, clone the code for ***back-end*** & cd into directory.
 ```ruby
 git clone git@github.com:meranly8/rails-api-murcar-cellar.git
@@ -25,9 +25,9 @@ Launch ***back-end*** web server using terminal by calling
 ```ruby
 rails s
 ```
-Navigate to [localhost:3000/wines](http://localhost:3000/wines) to see data.
-
-
+Navigate to [localhost:3000/wines](http://localhost:3000/wines) & [localhost:3000/comments](http://localhost:3000/comments)to see wine and comment data.
+  
+  
 Open web application ***front-end*** using terminal by calling
 ```ruby
 open index.html
