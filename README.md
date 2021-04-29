@@ -14,7 +14,7 @@ cd js-murcar-cellar
 ```
   
   
-In another terminal, in appropriate directory, clone the code for ***back-end*** & cd into directory.
+In another terminal, in appropriate directory, clone the code for ***back-end*** ([rails-api-murcar-cellar](https://github.com/meranly8/rails-api-murcar-cellar)) & cd into directory.
 ```ruby
 git clone git@github.com:meranly8/rails-api-murcar-cellar.git
 cd rails-api-murcar-cellar
