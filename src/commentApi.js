@@ -14,7 +14,7 @@ class CommentApi {
     }
 
     static fetchFilteredComments(wines) {
-        wines.map(wine => {
+        if (Array.isArray(wines)) {wines.map(wine => {
             fetch(`${WineApi.winesURL}/${wine.id}`)
             .then(resp => resp.json())
             .then(json => {
@@ -24,7 +24,17 @@ class CommentApi {
                     c.addToWineCommentDiv()
                 })
             })
-        })
+        })} else {
+            fetch(`${WineApi.winesURL}/${wines.id}`)
+            .then(resp => resp.json())
+            .then(json => {
+                const comments = json["included"]
+                comments.map(comment => {
+                    const c = new Comment({id: comment.id, ...comment.attributes})
+                    c.addToWineCommentDiv()
+                })
+            })
+        }
     }
 
     static createComment(comment) {
