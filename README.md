@@ -1,24 +1,32 @@
 # MURCAR Cellar
 ## About
+JavaScript front-end application using [rails-api-murcar-cellar](https://github.com/meranly8/rails-api-murcar-cellar) on the back-end to view, add, update, and delete wines in the cellar collection and view, add, and delete comments on the wines. The wine collection can be sorted and filtered, as well as show the different countries with their number of wines in the collection. MURCAR is the initials of my parents & this API & application are inspired by their appreciation for the fermented grapes.
+
+![wine][logo]
+
+[logo]: https://i.imgur.com/0tyu6Kch.png "wine"
 
 ## Installation
-In terminal, in appropriate directory, clone the code for ***front-end***.
+In terminal, in appropriate directory, clone the code for ***front-end*** & cd into directory.
 ```ruby
 git clone git@github.com:meranly8/js-murcar-cellar.git
+cd js-murcar-cellar
 ```
 
-In terminal, in appropriate directory, clone the code for ***back-end***.
+In another terminal, in appropriate directory, clone the code for ***back-end*** & cd into directory.
 ```ruby
 git clone git@github.com:meranly8/rails-api-murcar-cellar.git
+cd rails-api-murcar-cellar
 ```
 
 ## Usage
-Run the web application ***back-end*** by calling rackup in it's terminal. Navigate to [localhost:3000](localhost:3000/) to see data.
+Launch ***back-end*** web server using terminal by calling
 ```ruby
 rails s
 ```
+Navigate to [localhost:3000](localhost:3000/wines) to see data.
 
-Open web application ***front-end*** using it's terminal by calling
+Open web application ***front-end*** using terminal by calling
 ```ruby
 open index.html
 ```
