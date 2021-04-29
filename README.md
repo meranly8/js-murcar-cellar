@@ -1,6 +1,6 @@
 # MURCAR Cellar
 ## About
-JavaScript front-end application using [rails-api-murcar-cellar](https://github.com/meranly8/rails-api-murcar-cellar) on the back-end to view, add, update, and delete wines in the cellar and view, add, and delete comments on the wines. The wine collection can be sorted and filtered, as well as show the different countries with their number of wines in the collection. The API back-end, must be installed and running to be able to utilize this app. MURCAR is the initials of my parents & this application & API are inspired by their appreciation for the fermented grapes.
+JavaScript front-end application using [rails-api-murcar-cellar](https://github.com/meranly8/rails-api-murcar-cellar) on the back-end to view, add, update, and delete wines in the cellar and view, add, and delete comments on the wines. The wine collection can be sorted and filtered, as well as show the different countries with their number of wines in the collection. The API back-end must be cloned, installed, and running to be able to utilize this app. MURCAR is the initials of my parents & this application & API are inspired by their appreciation for the fermented grapes.
 
 ![mosel valley][logo]
 
