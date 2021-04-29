@@ -21,14 +21,14 @@ cd rails-api-murcar-cellar
 ```
 
 ## Usage
-Launch ***back-end*** web server using terminal by calling
+Launch ***back-end*** web server in the terminal by calling
 ```ruby
 rails s
 ```
-Navigate to [localhost:3000/wines](http://localhost:3000/wines) & [localhost:3000/comments](http://localhost:3000/comments)to see wine and comment data.
+Navigate to [localhost:3000/wines](http://localhost:3000/wines) & [localhost:3000/comments](http://localhost:3000/comments) to see wine and comment data.
   
   
-Open web application ***front-end*** using terminal by calling
+Open web application ***front-end*** using the terminal by calling
 ```ruby
 open index.html
 ```
