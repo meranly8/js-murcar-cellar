@@ -19,7 +19,6 @@ class WineApi {
     }
 
     static createWine() {
-        
         const formData = {
             wine: wineInput.value,
             region: regionInput.value,
@@ -49,7 +48,6 @@ class WineApi {
             w.updateDOM()
             addFilterOptions()
         })
-        CommentApi.fetchComments()
     }
 
     static updateWine(wine) {
@@ -79,6 +77,7 @@ class WineApi {
             wine.renderWineTr()
             wine.detailsFormatting()
             Wine.renderWineTOC()
+            CommentApi.fetchFilteredComments(wine)
         })
     }
 
