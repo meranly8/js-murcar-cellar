@@ -9,13 +9,13 @@
 + &ensp;&ensp;FastJSON
 
 ## Front-end
-- [ ] No page refreshes
-- [ ] At least 3 fetch requests
+- [x] No page refreshes
+- [x] At least 3 fetch requests
 + &ensp;&ensp;Wine: GET, POST, PATCH, DELETE
 + &ensp;&ensp;Comment: GET, POST, DELETE
-- [ ] At least 2 CRUD actions
+- [x] At least 2 CRUD actions
 + &ensp;&ensp;Wine: Create, Read, Update, Delete
 + &ensp;&ensp;Comment: Read, Create, Delete
-- [ ] Object-Oriented JavaScript
-- [ ] Functionality of has_many/belongs_to relationship
+- [x] Object-Oriented JavaScript
+- [x] Functionality of has_many/belongs_to relationship
 
