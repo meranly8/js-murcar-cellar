@@ -93,6 +93,7 @@ function handleNewWineSubmit(event) {
     event.preventDefault()
     WineApi.createWine()
     wineForm.reset()
+    CommentApi.fetchComments()
 }
 
 function resetAddForm() {
