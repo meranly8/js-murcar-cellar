@@ -136,27 +136,29 @@ function resetBtnActivation() {
 
 function handleFilter(event) {
     filteredTotal.innerText = ""
+    clearBtnActivation()
     if (event.target.value === "All Wines") {
-        Wine.sortTable()
+        Wine.sortFilterDOMBy(Wine.alphaSortWine())
         Wine.renderWineTOC()
-        CommentApi.fetchFilteredComments(Wine.all)
+        CommentApi.fetchWinesComments(Wine.all)
+        document.querySelector(`#wine-sort-btn`).classList.add("activated")
 
     } else if (event.target.value === "Unopened") {
         const unopenedWines = Wine.all.filter(wine => wine.opened === false || wine.opened === "")
         Wine.sortFilterDOMBy(unopenedWines)
-        CommentApi.fetchFilteredComments(unopenedWines)
+        CommentApi.fetchWinesComments(unopenedWines)
         filteredTotal.innerText = ` (${unopenedWines.length})`
 
     } else if (event.target.value === "Opened") {
         const openedWines = Wine.all.filter(wine => wine.opened === true || wine.opened === "true")
         Wine.sortFilterDOMBy(openedWines)
-        CommentApi.fetchFilteredComments(openedWines)
+        CommentApi.fetchWinesComments(openedWines)
         filteredTotal.innerText = ` (${openedWines.length})`
 
     } else {
         const countryWines = Wine.all.filter(wine => wine.country === event.target.value)
         Wine.sortFilterDOMBy(countryWines)
-        CommentApi.fetchFilteredComments(countryWines)
+        CommentApi.fetchWinesComments(countryWines)
         filteredTotal.innerText = ` (${countryWines.length})`
         
     }
