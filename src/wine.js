@@ -278,7 +278,10 @@ class Wine {
         
         WineApi.deleteWine(this.id)
 
-        Wine.all.splice(this.index, 1)
+        const wines = Wine.alphaSortWine()
+        const index = wines.indexOf(this)
+        wines.splice(index, 1)
+
         Wine.renderWineTOC()
         Wine.displayTotal()
     }
