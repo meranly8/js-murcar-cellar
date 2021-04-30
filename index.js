@@ -127,6 +127,13 @@ function clearBtnActivation() {
     document.querySelector(`#country-sort-btn`).classList.remove("activated")
 }
 
+function resetBtnActivation() {
+    document.querySelector(`#wine-sort-btn`).classList.add("activated")
+    document.querySelector(`#year-sort-btn`).classList.remove("activated")
+    document.querySelector(`#price-sort-btn`).classList.remove("activated")
+    document.querySelector(`#country-sort-btn`).classList.remove("activated")
+}
+
 function handleFilter(event) {
     filteredTotal.innerText = ""
     if (event.target.value === "All Wines") {
