@@ -71,7 +71,8 @@ function handleNewWineSubmit(event) {
     CommentApi.fetchFilteredComments(Wine.all)
 }
 
-function resetAddForm() {
+function hideAddForm() {
+    wineForm.reset()
     wineForm.className = "form-closed"
     addWineBtn.state = "Closed"
     addWineBtn.innerText = "Add Wine"
