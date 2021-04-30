@@ -93,29 +93,27 @@ function showWineForm() {
 
 function handleSort(event) {
     clearBtnActivation()
+    filterList.selectedIndex = 0
     filteredTotal.innerText = ""
+
     if (event.target.innerText === "Wine") {
-        Wine.sortTable()
-        Wine.renderWineTOC()
+        Wine.sortFilterDOMBy(Wine.alphaSortWine())
         CommentApi.fetchComments()
         event.target.className = "activated"
         
 
     } else if (event.target.innerText === "Year") {
-        const wines = Wine.sortWineYear()
-        Wine.sortFilterDOMBy(wines)
+        Wine.sortFilterDOMBy(Wine.sortWineYear())
         CommentApi.fetchComments()
         event.target.className = "activated"
 
     } else if (event.target.innerText === "Price") {
-        const wines = Wine.sortWinePrice()
-        Wine.sortFilterDOMBy(wines)
+        Wine.sortFilterDOMBy(Wine.sortWinePrice())
         CommentApi.fetchComments()
         event.target.className = "activated"
 
     } else if (event.target.innerText === "Country") {
-        const wines = Wine.alphaSortCountry()
-        Wine.sortFilterDOMBy(wines)
+        Wine.sortFilterDOMBy(Wine.alphaSortCountry())
         CommentApi.fetchComments()
         event.target.className = "activated"
 
