@@ -6,15 +6,8 @@ class WineApi {
         .then(resp => resp.json())
         .then(jsonWines => {
             const wines = jsonWines["data"]
-            wines.map(wine => {
-                const w = new Wine({id: wine.id, ...wine.attributes, comment_ids: wine.relationships.comments.data})
-
-                w.updateDOM()
-            })
-            CommentApi.fetchComments()
-            Wine.renderWineTOC()
-            Wine.displayTotal()
-            addFilterOptions()
+            wines.map(wine => new Wine({id: wine.id, ...wine.attributes, comment_ids: wine.relationships.comments.data}))
+            Wine.updateDOM()
         })
     }
 
