@@ -64,31 +64,6 @@ function uniqueCountryTotals() {
     })
 }
 
-function addFilterOptions() {
-    filterList.innerHTML = ""
-    
-    const distinctCountries = [...new Set(Wine.all.map(wine => wine.country))] 
-
-    distinctCountries.map(country => {
-        const option = document.createElement("option")
-        option.text = country
-        filterList.add(option)
-    })
-
-    const allWines = document.createElement("option")
-    allWines.text = "All Wines"
-    allWines.selected = true
-    filterList.add(allWines, 0)
-
-    const opened = document.createElement("option")
-    opened.text = "Opened"
-    filterList.add(opened, 1)
-
-    const unopened = document.createElement("option")
-    unopened.text = "Unopened"
-    filterList.add(unopened, 2)
-}
-
 function handleNewWineSubmit(event) {
     event.preventDefault()
     WineApi.createWine()
