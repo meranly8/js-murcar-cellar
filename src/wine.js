@@ -21,10 +21,6 @@ class Wine {
         Wine.all.push(this)
     }
 
-    setWineCommentsOnDOM() {
-        CommentApi.fetchWinesComments(this)
-    }
-
     renderWineTr() {
         this.tr.innerHTML = `
             <th id="${this.id}" class="wine-details">
