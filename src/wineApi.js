@@ -36,10 +36,8 @@ class WineApi {
         .then(resp => resp.json())
         .then(jsonWine => {
             const wine = jsonWine["data"]
-            const w = new Wine({id: wine.id, ...wine.attributes})
-            resetAddForm()
-            w.updateDOM()
-            addFilterOptions()
+            new Wine({id: wine.id, ...wine.attributes})
+            Wine.updateDOM()
         })
     }
 
