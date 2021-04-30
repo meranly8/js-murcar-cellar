@@ -85,7 +85,6 @@ class WineApi {
         .then(resp => resp.json())
         .then(json => {
             alert(json.message)
-            addFilterOptions()
         })
     }
 }
