@@ -13,7 +13,7 @@ class CommentApi {
         })
     }
 
-    static fetchFilteredComments(wines) {
+    static fetchWinesComments(wines) {
         if (Array.isArray(wines)) {
             wines.map(wine => {
                 fetch(`${WineApi.winesURL}/${wine.id}`)
