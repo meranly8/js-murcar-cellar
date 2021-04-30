@@ -67,8 +67,9 @@ function uniqueCountryTotals() {
 function handleNewWineSubmit(event) {
     event.preventDefault()
     WineApi.createWine()
-    wineForm.reset()
-    CommentApi.fetchFilteredComments(Wine.all)
+    
+    hideAddForm()
+    resetBtnActivation()
 }
 
 function hideAddForm() {
