@@ -67,8 +67,8 @@ class WineApi {
         .then(jsonWine => {
             wine.renderWineTr()
             wine.detailsFormatting()
+            CommentApi.fetchWinesComments(wine)
             Wine.renderWineTOC()
-            CommentApi.fetchFilteredComments(wine)
         })
     }
 
