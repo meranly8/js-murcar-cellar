@@ -18,7 +18,6 @@ class Wine {
         this.tr.id = `wine-${id}`
         this.tr.addEventListener('click', this.handleWineClick)
 
-        this.index = Wine.all.length
         Wine.all.push(this)
     }
 
@@ -27,8 +26,15 @@ class Wine {
         Wine.displayTotal()
         Wine.renderWineTOC()
     }
-    setWineCommentsOnDOM() {
-        CommentApi.fetchWinesComments(this)
+
+    static sortTable() {
+        wineTable.innerHTML = ""
+        
+        const wines = Wine.alphaSortWine()
+        wines.map(wine => {
+            wineTable.appendChild(wine.renderWineTr())
+            wine.detailsFormatting()
+        })
     }
 
     renderWineTr() {
@@ -117,6 +123,84 @@ class Wine {
         const shortDate = new Date(this.created_at).toLocaleDateString()
         
         createdAt.innerText = shortDate
+    }
+
+    static displayTotal() {
+        wineTotal.innerText = Wine.all.length
+        Wine.all.length === 0 ? countryTotalsBtn.className = 'form-closed' : countryTotalsBtn.className = 'form-open'
+    }
+
+    static renderWineTOC() {
+        wineTOCList.innerHTML = ""
+        
+        if (Wine.all.length === 0) {
+            wineTOCList.innerHTML = "No wines in collection yet."
+        } else {
+            const wines = this.alphaSortWine()
+            
+            wines.map(wine => {
+                const li = document.createElement("li")
+                li.id = wine.id + "-link-li"
+                li.innerHTML = `
+                    <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
+                `
+                wineTOCList.append(li)
+            })
+        }
+    }
+
+    static alphaSortWine = () => {
+        return Wine.all.sort((a, b) => {
+            let nameA = a.wine.toUpperCase()
+            let nameB = b.wine.toUpperCase()
+            if (nameA < nameB) {
+                return -1
+            } else {
+                return 1
+            }
+        })
+    }
+
+    static sortWineYear() {
+        return Wine.all.sort((a, b) => {
+            return a.year - b.year
+        })
+    }
+
+    static sortWinePrice() {
+        return Wine.all.sort((a, b) => {
+            return b.price - a.price
+        })
+    }
+
+    static alphaSortCountry() {
+        return Wine.all.sort((a, b) => {
+            let countryA = a.country.toUpperCase()
+            let countryB = b.country.toUpperCase()
+            if (countryA < countryB) {
+                return -1
+            } else {
+                return 1
+            }
+        })
+    }
+
+    static sortFilterDOMBy(wines) {
+        wineTable.innerHTML = ""
+        wineTOCList.innerHTML = ""
+
+        wines.map(wine => {
+            wineTable.appendChild(wine.renderWineTr())
+            
+            wine.detailsFormatting()
+
+            const li = document.createElement("li")
+            li.id = wine.id + "-link-li"
+            li.innerHTML = `
+                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
+            `
+            wineTOCList.append(li)
+        })
     }
 
     handleWineUpdateSubmit = (event) => {
@@ -270,126 +354,5 @@ class Wine {
 
         const addCommentBtn = this.tr.querySelector(`#wine-${this.id}-add-cmt-btn`)
         addCommentBtn.innerText = "Add Comment"
-    }
-
-    static updateDOM() {
-        Wine.setTable()
-        Wine.displayTotal()
-        Wine.addFilterOptions()
-        Wine.renderWineTOC()
-       
-        CommentApi.fetchComments()
-    }
-
-    static setTable() {
-        wineTable.innerHTML = ""
-        
-        this.alphaSortWine().map(wine => {
-            wineTable.appendChild(wine.renderWineTr())
-            wine.detailsFormatting()
-        })
-    }
-
-    static displayTotal() {
-        wineTotal.innerText = Wine.all.length
-        Wine.all.length === 0 ? countryTotalsBtn.className = 'form-closed' : countryTotalsBtn.className = 'form-open'
-    }
-
-    static addFilterOptions() {
-        filterList.innerHTML = ""
-        
-        const distinctCountries = [...new Set(Wine.all.map(wine => wine.country))] 
-    
-        distinctCountries.map(country => {
-            const option = document.createElement("option")
-            option.text = country
-            filterList.add(option)
-        })
-    
-        const allWines = document.createElement("option")
-        allWines.text = "All Wines"
-        allWines.selected = true
-        filterList.add(allWines, 0)
-    
-        const opened = document.createElement("option")
-        opened.text = "Opened"
-        filterList.add(opened, 1)
-    
-        const unopened = document.createElement("option")
-        unopened.text = "Unopened"
-        filterList.add(unopened, 2)
-    }
-
-    static renderWineTOC() {
-        wineTOCList.innerHTML = ""
-        
-        if (Wine.all.length === 0) {
-            wineTOCList.innerHTML = "No wines in collection yet."
-        } else {
-            const wines = this.alphaSortWine()
-            
-            wines.map(wine => {
-                const li = document.createElement("li")
-                li.id = wine.id + "-link-li"
-                li.innerHTML = `
-                    <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
-                `
-                wineTOCList.append(li)
-            })
-        }
-    }
-
-    static alphaSortWine = () => {
-        return Wine.all.sort((a, b) => {
-            let nameA = a.wine.toUpperCase()
-            let nameB = b.wine.toUpperCase()
-            if (nameA < nameB) {
-                return -1
-            } else {
-                return 1
-            }
-        })
-    }
-
-    static sortWineYear() {
-        return Wine.all.sort((a, b) => {
-            return a.year - b.year
-        })
-    }
-
-    static sortWinePrice() {
-        return Wine.all.sort((a, b) => {
-            return b.price - a.price
-        })
-    }
-
-    static alphaSortCountry() {
-        return Wine.all.sort((a, b) => {
-            let countryA = a.country.toUpperCase()
-            let countryB = b.country.toUpperCase()
-            if (countryA < countryB) {
-                return -1
-            } else {
-                return 1
-            }
-        })
-    }
-
-    static sortFilterDOMBy(wines) {
-        wineTable.innerHTML = ""
-        wineTOCList.innerHTML = ""
-
-        wines.map(wine => {
-            wineTable.appendChild(wine.renderWineTr())
-            
-            wine.detailsFormatting()
-
-            const li = document.createElement("li")
-            li.id = wine.id + "-link-li"
-            li.innerHTML = `
-                <a href="#${wine.id}" id="${wine.id}-link">${wine.wine}, ${wine.country} (${wine.year})</a>
-            `
-            wineTOCList.append(li)
-        })
     }
 }
