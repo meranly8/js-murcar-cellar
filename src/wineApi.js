@@ -20,9 +20,10 @@ class WineApi {
             price: priceInput.value,
             opened: openedInput.checked,
             rating: ratingInput.value,
+            quantity: quantityInput.value,
             image: imageInput.value
         }
-
+        
         const configObj = {
             method: "POST",
             headers: {
