@@ -1,7 +1,7 @@
 class Wine {
     static all = []
 
-    constructor({id, wine, region, country, year, price, opened, image, rating, comment_ids, created_at}) {
+    constructor({id, wine, region, country, year, price, opened, image, rating, quantity,comment_ids, created_at}) {
         this.id = id
         this.wine = wine
         this.region = region
@@ -11,6 +11,7 @@ class Wine {
         this.opened = opened
         this.image = image
         this.rating = rating
+        this.quantity = quantity
         this.comment_ids = (comment_ids === undefined) ? [] : comment_ids.map(id => {return id.id})
         this.created_at = created_at
 
@@ -34,7 +35,8 @@ class Wine {
 
                 <b>Price:</b> $${this.price}<br>
                 <b>Opened:</b> <container id="opened-detail-${this.id}">${this.opened}</container><br>
-                <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br><br>
+                <b>Rating:</b> <container id="rating-detail-${this.id}">${this.rating}</container><br>
+                <b>Quantity:</b> ${this.quantity} bottles<br><br>
                 <b>Added:</b> <container id="added-detail-${this.id}">${this.created_at}</container><br><br>
                 
                 <button id="view-${this.id}-comments" data-id="${this.id}">View Comments</button><br><br>
