@@ -157,6 +157,9 @@ class Wine {
                 <label>Rating:
                     <input type="number" name="rating" id="edit-rating-${this.id}" min=0 max=5 step=.5 class="edit-form-column-2" value=${this.rating}> / 5<br>
                 </label><br>
+                <label>Quantity:
+                    <input type="number" name="quantity" id="edit-quantity-${this.id}" min=0 step=1 class="edit-form-column-2, edit-quantity" value=${this.quantity}> bottles<br>
+                </label><br>
                 <label>Label Image Link:
                     <input type="text" name="image" id="edit-image-${this.id}" placeholder="ex: https://i.imgur.com/Hnlo6p8h.png" class="edit-form-column-2" value="${this.image}"><br><br>
                 </label>
