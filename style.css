@@ -54,11 +54,11 @@ th h3{
     width: 225px;
 }
 
-#wine-price, #wine-year{
+#wine-price, #wine-year, #wine-quantity{
     width: 75px;
 }
 
-.edit-price, .edit-year{
+.edit-price, .edit-year, .edit-quantity{
     width: 50px
 }
 
