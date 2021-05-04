@@ -30,6 +30,7 @@ const yearInput = document.querySelector("#wine-year")
 const priceInput = document.querySelector("#wine-price")
 const openedInput = document.querySelector("#wine-opened")
 const ratingInput = document.querySelector("#wine-rating")
+const quantityInput = document.querySelector("#wine-quantity")
 const imageInput = document.querySelector("#wine-image")
 
 wineForm.addEventListener("submit", handleNewWineSubmit)
