@@ -276,6 +276,7 @@ class Wine {
     static updateDOM() {
         Wine.setTable()
         Wine.displayTotal()
+        this.displayBottleTotal()
         Wine.addFilterOptions()
         Wine.renderWineTOC()
        
@@ -294,6 +295,12 @@ class Wine {
     static displayTotal() {
         wineTotal.innerText = Wine.all.length
         Wine.all.length === 0 ? countryTotalsBtn.className = 'form-closed' : countryTotalsBtn.className = 'form-open'
+    }
+
+    static displayBottleTotal() {
+        const bottles = Wine.all.map(wine => wine.quantity)
+        const totalBottles = bottles.reduce((total, winesBottles) => total + winesBottles)
+        bottleTotal.innerText = totalBottles
     }
 
     static addFilterOptions() {
