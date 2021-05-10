@@ -4,6 +4,7 @@ const wineTotal = document.querySelector("#wine-total")
 const countryTotalsBtn = document.querySelector("#totals-by-country-btn")
 countryTotalsBtn.addEventListener("click", showCountryTotals)
 const totalsContainer = document.querySelector("#totals-by-country")
+const bottleTotal = document.querySelector("#bottle-total")
 
 const addWineBtn = document.querySelector("#add-wine-btn")
 
